@@ -3,258 +3,735 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Destopian Pirate — Transmission from Destopia</title>
-    <meta name="description" content="Destopian Pirate: Digital resistance tools for the surveillance age. Browser extensions engineered for privacy, speed, and absolute control.">
-
+    <title>Destopian Pirate — The World Is Watching. We Watch Back.</title>
+    <meta name="description" content="Destopian Pirate: A decentralized collective building free, open-source resistance tools for digital self-defense. Privacy-first browser extensions.">
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- ═══ NAVIGATION ═══ -->
-    <nav class="nav-bar" id="navbar">
-        <a href="#" class="nav-brand" id="nav-home-link">
-            <div class="nav-brand-icon">DP</div>
-            <span class="nav-brand-text">Destopian</span>
-            <span class="nav-brand-sub">Pirate Network</span>
-        </a>
+<!-- Rain Effect -->
+<div class="rain-container" id="rain"></div>
+<div class="scanlines"></div>
 
-        <div class="nav-tabs" id="nav-tabs">
-            <button class="nav-tab active" data-page="page-home">Home</button>
-            <button class="nav-tab" data-page="page-extensions">Extensions</button>
+<!-- ═══ COMMAND BAR ═══ -->
+<nav class="command-bar">
+    <div class="command-bar-inner">
+        <div class="brand" id="brand-home">
+            <img src="assets/logo.png" alt="Destopian Pirate Logo" class="brand-logo">
+            <span class="brand-name">Destopian Pirate</span>
+            <span class="brand-tag">RESISTANCE<br>NETWORK v2.1</span>
         </div>
 
-        <div class="nav-status">
-            <span class="status-dot"></span>
-            <span>SIGNAL ACTIVE</span>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation">☰ MENU</button>
+
+        <div class="channel-strip" id="channel-strip">
+            <button class="ch-btn active" data-page="home"><span class="ch-num">01</span> Home</button>
+            <button class="ch-btn" data-page="extensions"><span class="ch-num">02</span> Arsenal</button>
+            <button class="ch-btn" data-page="manifesto"><span class="ch-num">03</span> Manifesto</button>
+            <button class="ch-btn" data-page="intel"><span class="ch-num">04</span> Intel</button>
+            <button class="ch-btn" data-page="about"><span class="ch-num">05</span> About</button>
+            <button class="ch-btn" data-page="deaddrop"><span class="ch-num">06</span> Dead Drop</button>
         </div>
-    </nav>
 
-    <!-- ═══════════════════════════════════
-         PAGE: HOME — Welcome to Destopia
-         ═══════════════════════════════════ -->
-    <div class="page active" id="page-home">
+        <div class="sys-indicators">
+            <div class="sys-dot">ONLINE</div>
+            <div class="sys-dot">ENCRYPTED</div>
+        </div>
+    </div>
+</nav>
 
-        <!-- Hero -->
-        <section class="hero">
-            <div class="hero-tag">⬡ Broadcast Frequency 47.3 MHz</div>
+<!-- ══════════════════════════════════════════
+     PAGE 01: HOME
+     ══════════════════════════════════════════ -->
+<div class="page-view active" id="page-home">
 
-            <h1 class="hero-title">
-                <span class="hero-title-corrupt" aria-hidden="true">DESTOPIAN<br>PIRATE</span>
-                DESTOPIAN<br><span class="accent">PIRATE</span>
-            </h1>
-
-            <p class="hero-sub">
-                We build tools for those who refuse to be watched.
-                Digital resistance software — engineered in the ruins of the open web,
-                deployed against surveillance capitalism.
-            </p>
-
-            <div class="hero-actions">
-                <button class="btn-deploy" onclick="switchPage('page-extensions')">
-                    ◈ Enter the Arsenal
-                </button>
-                <a href="https://github.com/destopianpirate" class="btn-ghost" target="_blank" rel="noopener">
-                    ⌘ Source Archives
-                </a>
-            </div>
-        </section>
-
-        <!-- Manifesto -->
-        <section class="manifesto">
-            <div class="manifesto-inner">
-                <div class="manifesto-label">
-                    ◉ Intercepted Transmission — Directive #001
-                </div>
-
-                <div class="manifesto-block">
-                    <p class="manifesto-text">
-                        The open web is under siege. Every click is catalogued.
-                        Every search is <span class="redacted">profiled</span>.
-                        Every page you visit feeds a machine designed to
-                        <span class="redacted">predict and control</span> your behavior.
-                        <br><br>
-                        We are Destopian Pirate — a decentralized collective building
-                        free, open-source resistance tools. Our extensions don't
-                        phone home. They don't harvest data. They don't serve ads.
-                        They exist for one purpose: to give you back what was taken.
-                        <br><br>
-                        Your browser. Your data. <span class="redacted">Your freedom</span>.
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="hero-badge-dot"></span>
+                        TRANSMISSION ACTIVE — CHANNEL 47.3
+                    </div>
+                    <h1>
+                        The world is watching.
+                        <span class="line-accent">We watch back.</span>
+                    </h1>
+                    <p class="hero-desc">
+                        Destopian Pirate is a decentralized collective engineering
+                        free, open-source tools for digital resistance. We build browser extensions
+                        that give you back control over your data, your privacy, and your web.
                     </p>
-
-                    <div class="manifesto-sig">
-                        — SIGNAL ORIGIN: DESTOPIAN PIRATE NETWORK
-                        &nbsp;|&nbsp; TIMESTAMP: <span id="manifesto-ts"></span>
-                        &nbsp;|&nbsp; STATUS: UNREDACTED
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" onclick="navigateTo('extensions')">Enter the Arsenal</button>
+                        <a href="https://github.com/destopianpirate" class="btn btn-outline" target="_blank" rel="noopener">View Source Code</a>
                     </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="radar-ring"></div>
+                    <div class="radar-ring"></div>
+                    <div class="radar-ring"></div>
+                    <div class="radar-sweep"></div>
+                    <div class="radar-node"></div>
+                    <div class="radar-node"></div>
+                    <div class="radar-node"></div>
+                    <div class="radar-node"></div>
+                    <div class="radar-node"></div>
+                    <span class="radar-label">NODE_ALPHA</span>
+                    <span class="radar-label">SECTOR_7G</span>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Status Terminal -->
-        <section class="terminal-section">
-            <div class="terminal-wrapper">
-                <div class="terminal-chrome">
-                    <span class="term-dot r"></span>
-                    <span class="term-dot y"></span>
-                    <span class="term-dot g"></span>
-                    <span class="terminal-title-bar">destopian@pirate:~$ system_status</span>
+    <!-- Mission Pillars -->
+    <section class="section">
+        <div class="container">
+            <div class="section-eyebrow">Core Directives</div>
+            <h2 class="section-title">Three Pillars of the Resistance</h2>
+            <p class="section-subtitle" style="margin-bottom: 2.5rem;">
+                Every tool we build stands on three non-negotiable principles. No exceptions. No compromises.
+            </p>
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-icon privacy">🛡</div>
+                    <h3>Absolute Privacy</h3>
+                    <p>Zero data collection. Zero telemetry. Zero third-party connections. Your browsing data never leaves your machine — not even aggregated, not even anonymized. We don't want it. Period.</p>
                 </div>
-                <div class="terminal-body" id="terminal-output">
-                    <!-- Lines injected by JS -->
+                <div class="pillar-card">
+                    <div class="pillar-icon freedom">⚡</div>
+                    <h3>Digital Freedom</h3>
+                    <p>The web should belong to the people who use it, not the corporations who monetize it. Our tools strip away the surveillance layer and return the web to its original promise: open, free, and yours.</p>
                 </div>
-            </div>
-        </section>
-
-        <!-- Intercepted Signals -->
-        <section class="signals">
-            <div class="section-label">
-                ◉ Intercepted Signals — Latest Activity
-            </div>
-
-            <div class="signal-grid">
-                <div class="signal-card">
-                    <div class="signal-meta">
-                        <span class="signal-time">2026.06.10 // 09:41 UTC</span>
-                        <span class="signal-class priority">Priority</span>
-                    </div>
-                    <div class="signal-title">Destopian AdBlock Pro v1.0 Deployed</div>
-                    <div class="signal-body">
-                        First field-tested tool now live on the Microsoft Edge Add-ons Store.
-                        Manifest V3 architecture. Declarative Net Request engine.
-                        Zero remote code execution. Status: Operational.
-                    </div>
-                </div>
-
-                <div class="signal-card">
-                    <div class="signal-meta">
-                        <span class="signal-time">2026.06.10 // 08:12 UTC</span>
-                        <span class="signal-class standard">Standard</span>
-                    </div>
-                    <div class="signal-title">Network Node Established</div>
-                    <div class="signal-body">
-                        Destopian Pirate homepage now broadcasting on GitHub Pages.
-                        All source archives public and auditable. Resistance infrastructure online.
-                    </div>
-                </div>
-
-                <div class="signal-card">
-                    <div class="signal-meta">
-                        <span class="signal-time">2026.06.09 // 23:55 UTC</span>
-                        <span class="signal-class routine">Routine</span>
-                    </div>
-                    <div class="signal-title">Privacy Audit Complete</div>
-                    <div class="signal-body">
-                        Full audit confirms: zero data collection, zero telemetry,
-                        zero third-party connections. All user data stored locally only.
-                        Compliance verified.
-                    </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon opensource">⌘</div>
+                    <h3>Open Source</h3>
+                    <p>Every line of code is public. Every decision is auditable. We don't ask you to trust us — we give you the source and let you verify. Fork it, audit it, improve it. That's the point.</p>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
-    <!-- ═══════════════════════════════════
-         PAGE: EXTENSIONS — The Arsenal
-         ═══════════════════════════════════ -->
-    <div class="page" id="page-extensions">
-
-        <section class="arsenal">
-            <div class="arsenal-header">
-                <div class="arsenal-tag">◈ Resistance Toolkit</div>
-                <h1 class="arsenal-title">The Arsenal</h1>
-                <p class="arsenal-sub">
-                    Field-tested browser extensions for digital self-defense.
-                    Open source. Privacy-first. No compromises.
-                </p>
+    <!-- World Status Dashboard -->
+    <section class="section">
+        <div class="container">
+            <div class="section-eyebrow">Network Status</div>
+            <h2 class="section-title">Resistance Dashboard</h2>
+            <p class="section-subtitle" style="margin-bottom: 2.5rem;">Real-time metrics from the Destopian Pirate network.</p>
+            <div class="stats-strip">
+                <div class="stat-cell">
+                    <div class="stat-value"><span class="counter" data-target="99.97">0</span><span class="unit">%</span></div>
+                    <div class="stat-label">Network Uptime</div>
+                    <div class="stat-bar"><div class="stat-bar-fill green" style="width:0%" data-width="99%"></div></div>
+                </div>
+                <div class="stat-cell">
+                    <div class="stat-value"><span class="counter" data-target="1">0</span></div>
+                    <div class="stat-label">Active Agents</div>
+                    <div class="stat-bar"><div class="stat-bar-fill orange" style="width:0%" data-width="15%"></div></div>
+                </div>
+                <div class="stat-cell">
+                    <div class="stat-value"><span class="counter" data-target="0">0</span><span class="unit"> KB</span></div>
+                    <div class="stat-label">User Data Collected</div>
+                    <div class="stat-bar"><div class="stat-bar-fill blue" style="width:0%" data-width="0%"></div></div>
+                </div>
+                <div class="stat-cell">
+                    <div class="stat-value"><span class="counter" data-target="20">0</span><span class="unit">+</span></div>
+                    <div class="stat-label">Blocking Rules</div>
+                    <div class="stat-bar"><div class="stat-bar-fill gold" style="width:0%" data-width="60%"></div></div>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="dossier-grid">
-
-                <!-- Dossier: AdBlock Pro -->
-                <div class="dossier">
-                    <div class="dossier-stamp">DEPLOYED</div>
-
-                    <div class="dossier-top">
-                        <span class="dossier-id">DOSSIER // DTP-001</span>
-                        <span class="dossier-clearance">◉ Operational</span>
+    <!-- Latest Signals -->
+    <section class="section">
+        <div class="container">
+            <div class="section-eyebrow">Intercepted Signals</div>
+            <h2 class="section-title">Latest Transmissions</h2>
+            <p class="section-subtitle" style="margin-bottom: 2.5rem;">Activity updates from the resistance network.</p>
+            <div class="signal-feed">
+                <div class="signal-item">
+                    <div class="signal-header">
+                        <span class="signal-date">2026.06.10 — 09:41 UTC</span>
+                        <span class="signal-tag critical">PRIORITY</span>
                     </div>
+                    <h4>Destopian AdBlock Pro v1.0 Deployed</h4>
+                    <p>First field-tested resistance tool is now live on the Microsoft Edge Add-ons Store. Manifest V3 architecture with Declarative Net Request engine. Zero remote code execution. Full operational status confirmed.</p>
+                </div>
+                <div class="signal-item">
+                    <div class="signal-header">
+                        <span class="signal-date">2026.06.10 — 08:12 UTC</span>
+                        <span class="signal-tag update">UPDATE</span>
+                    </div>
+                    <h4>Network Infrastructure Online</h4>
+                    <p>Destopian Pirate network node established on GitHub Pages. All source archives are public and auditable. Resistance infrastructure is fully operational and broadcasting.</p>
+                </div>
+                <div class="signal-item">
+                    <div class="signal-header">
+                        <span class="signal-date">2026.06.09 — 23:55 UTC</span>
+                        <span class="signal-tag info">VERIFIED</span>
+                    </div>
+                    <h4>Privacy Audit Complete</h4>
+                    <p>Independent audit confirms: zero data collection, zero telemetry endpoints, zero third-party network calls. All user data stored locally. Full compliance with resistance protocols.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 
-                    <div class="dossier-content">
-                        <div class="dossier-icon-wrap">
-                            <img src="assets/shield_logo.png" alt="Destopian AdBlock Pro Shield">
+<!-- ══════════════════════════════════════════
+     PAGE 02: EXTENSIONS (ARSENAL)
+     ══════════════════════════════════════════ -->
+<div class="page-view" id="page-extensions">
+
+    <section class="section">
+        <div class="container">
+            <div class="section-eyebrow">Resistance Toolkit</div>
+            <h2 class="section-title">The Arsenal</h2>
+            <p class="section-subtitle" style="margin-bottom: 3rem;">Field-tested browser extensions for digital self-defense. Open source. Privacy-first. No compromises.</p>
+
+            <!-- Featured Extension -->
+            <div class="ext-featured">
+                <div class="ext-featured-header">
+                    <div class="ext-icon-frame">
+                        <img src="assets/shield_logo.png" alt="Destopian AdBlock Pro">
+                    </div>
+                    <div class="ext-meta">
+                        <h2>Destopian AdBlock Pro</h2>
+                        <div class="ext-version-line">
+                            v1.0.0 · MANIFEST V3 · EDGE
+                            <span class="ext-status-badge">OPERATIONAL</span>
                         </div>
+                        <p class="ext-desc">High-performance ad and tracker blocker powered by the Declarative Net Request engine. Intercepts surveillance scripts, advertising payloads, and popup intrusions at the network layer — before they ever reach your browser. Features real-time blocking dashboard, smart whitelisting, custom filter rules, and live statistics.</p>
+                    </div>
+                </div>
 
-                        <div class="dossier-info">
-                            <h3>Destopian AdBlock Pro</h3>
-                            <div class="dossier-version">VERSION 1.0.0 // MANIFEST V3 // EDGE</div>
-
-                            <p class="dossier-desc">
-                                High-performance ad and tracker blocker powered by the
-                                Declarative Net Request engine. Intercepts surveillance
-                                scripts, advertising payloads, and popup intrusions at
-                                the network layer — before they reach your browser.
-                                Features a real-time control dashboard, smart whitelisting,
-                                custom filter rules, and live blocking statistics.
-                            </p>
-
-                            <div class="dossier-stats">
-                                <div class="dstat">
-                                    <span class="dstat-val">20+</span>
-                                    <span class="dstat-label">Rules Active</span>
-                                </div>
-                                <div class="dstat">
-                                    <span class="dstat-val">0ms</span>
-                                    <span class="dstat-label">Render Delay</span>
-                                </div>
-                                <div class="dstat">
-                                    <span class="dstat-val">0 KB</span>
-                                    <span class="dstat-label">Data Collected</span>
-                                </div>
+                <div class="ext-featured-body">
+                    <div class="section-eyebrow" style="margin-bottom: 1.5rem;">Capabilities</div>
+                    <div class="ext-features-grid">
+                        <div class="ext-feature">
+                            <div class="ext-feature-icon">🎯</div>
+                            <div>
+                                <h5>Network-Level Blocking</h5>
+                                <p>Intercepts and neutralizes ad requests before they consume bandwidth or render on the page. Zero visual flicker.</p>
                             </div>
-
-                            <div class="dossier-actions">
-                                <a href="https://destopianpirate.github.io/destopian-adblocker/" class="btn-deploy" id="btn-edge-store">
-                                    ◈ View AdBlock Pro
-                                </a>
-                                <a href="https://github.com/destopianpirate/destopian-adblocker" class="btn-ghost" target="_blank" rel="noopener">
-                                    ⌘ Source Code
-                                </a>
+                        </div>
+                        <div class="ext-feature">
+                            <div class="ext-feature-icon">📊</div>
+                            <div>
+                                <h5>Real-Time Dashboard</h5>
+                                <p>Live statistics showing blocked requests per session. Monitor exactly what's being neutralized in real time.</p>
+                            </div>
+                        </div>
+                        <div class="ext-feature">
+                            <div class="ext-feature-icon">⚙️</div>
+                            <div>
+                                <h5>Smart Whitelisting</h5>
+                                <p>Surgically disable blocking on trusted domains without compromising protection everywhere else. One-click toggle.</p>
+                            </div>
+                        </div>
+                        <div class="ext-feature">
+                            <div class="ext-feature-icon">🔒</div>
+                            <div>
+                                <h5>Zero Data Collection</h5>
+                                <p>No telemetry, no analytics, no phone-home behavior. All configuration stored locally in your browser.</p>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Coming Soon Placeholder -->
-                <div class="dossier dossier-coming">
-                    <div class="coming-inner">
-                        <div class="icon-placeholder">?</div>
-                        <p>Next Tool — Under Development</p>
-                        <p class="sub">Classification pending // Watch the signals</p>
+                    <div class="section-eyebrow" style="margin-bottom: 1.5rem;">Performance Metrics</div>
+                    <div class="ext-stats-row">
+                        <div class="ext-stat">
+                            <div class="ext-stat-val">20+</div>
+                            <div class="ext-stat-label">Active Rules</div>
+                        </div>
+                        <div class="ext-stat">
+                            <div class="ext-stat-val">0ms</div>
+                            <div class="ext-stat-label">Render Delay</div>
+                        </div>
+                        <div class="ext-stat">
+                            <div class="ext-stat-val">0 KB</div>
+                            <div class="ext-stat-label">Data Collected</div>
+                        </div>
+                        <div class="ext-stat">
+                            <div class="ext-stat-val">V3</div>
+                            <div class="ext-stat-label">Manifest Version</div>
+                        </div>
+                    </div>
+
+                    <div class="ext-actions">
+                        <a href="https://destopianpirate.github.io/destopian-adblocker/" class="btn btn-primary">View Full Details</a>
+                        <a href="https://github.com/destopianpirate/destopian-adblocker" class="btn btn-outline" target="_blank" rel="noopener">Source Code</a>
                     </div>
                 </div>
-
             </div>
-        </section>
-    </div>
 
-    <!-- ═══ FOOTER ═══ -->
-    <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-brand">◈ Destopian Pirate</div>
-            <div class="footer-links">
+            <!-- Coming Soon -->
+            <div class="ext-placeholder">
+                <div class="ext-placeholder-icon">?</div>
+                <h4>Next Tool Under Development</h4>
+                <p>Classification pending. Watch the signals for updates.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section">
+        <div class="container">
+            <div class="section-eyebrow">Deployment Protocol</div>
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle" style="margin-bottom: 3rem;">Three steps to digital resistance.</p>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <div class="step-num">1</div>
+                    <h4>Install</h4>
+                    <p>Download from the Edge Add-ons Store. No account required. No hidden permissions. Installs in under 3 seconds.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">2</div>
+                    <h4>Configure</h4>
+                    <p>Set your protection level. Add trusted sites to your whitelist. Customize blocking rules if you want — or leave the defaults running.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">3</div>
+                    <h4>Protected</h4>
+                    <p>That's it. Browse freely. Ads, trackers, and popups are neutralized at the network layer before they touch your screen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE 03: MANIFESTO
+     ══════════════════════════════════════════ -->
+<div class="page-view" id="page-manifesto">
+
+    <section class="section">
+        <div class="container">
+            <div class="section-eyebrow">Directive #001</div>
+            <h2 class="section-title">The Manifesto</h2>
+            <p class="section-subtitle" style="margin-bottom: 3rem;">The founding document of the Destopian Pirate network.</p>
+
+            <div class="manifesto-document">
+                <div class="manifesto-stamp">UNREDACTED</div>
+                <div class="manifesto-header">
+                    <h2>On the Open Web and Its Enemies</h2>
+                    <div class="manifesto-meta">DOCUMENT REF: DPN-001 &nbsp;|&nbsp; CLASSIFICATION: PUBLIC &nbsp;|&nbsp; STATUS: ACTIVE</div>
+                </div>
+                <div class="manifesto-body">
+                    <p>The open web is under siege. Not by armies or governments alone, but by something more insidious — a quiet, systematic architecture of surveillance woven into every page you visit, every search you make, every link you click. You are not a user. You are a data point. A behavioral profile. A commodity traded in millisecond auctions before your page even loads.</p>
+
+                    <p>Every cookie dropped on your machine is a listening device. Every "free" service is a <span class="highlight">contract you never read and never signed</span>. Every personalized ad is proof that someone, somewhere, has built a model of who you are, what you want, and how to manipulate you into wanting more.</p>
+
+                    <blockquote>"The most effective prison is the one where the inmates don't know they're imprisoned."</blockquote>
+
+                    <p>We are Destopian Pirate — a decentralized collective of developers, privacy advocates, and digital dissidents who refuse to accept this as normal. We don't write petitions. We don't file complaints. <span class="highlight">We write code.</span></p>
+
+                    <p>Our tools are weapons of digital self-defense. They don't phone home. They don't harvest data. They don't serve ads. They don't compromise. They exist for one purpose: to give you back what was systematically taken from you — your privacy, your autonomy, your right to browse the web without being watched, tracked, profiled, and sold.</p>
+
+                    <p>We build in the open because <span class="highlight">transparency is not a feature — it's a requirement</span>. Every line of code is public. Every decision is auditable. We don't ask for trust. We provide proof.</p>
+
+                    <p>The watchers have no power here.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Principles -->
+    <section class="section">
+        <div class="container">
+            <div class="section-eyebrow">Operating Doctrine</div>
+            <h2 class="section-title">Core Principles</h2>
+            <p class="section-subtitle" style="margin-bottom: 2.5rem;">The non-negotiable rules that govern every tool we build.</p>
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <div class="principle-num">I</div>
+                    <div>
+                        <h4>Privacy Is Non-Negotiable</h4>
+                        <p>We will never collect, transmit, or store user data. Not anonymized. Not aggregated. Not "just for analytics." Zero means zero.</p>
+                    </div>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-num">II</div>
+                    <div>
+                        <h4>Open Source or Nothing</h4>
+                        <p>Every tool we ship comes with its complete source code. If we can't show you how it works, we don't ship it.</p>
+                    </div>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-num">III</div>
+                    <div>
+                        <h4>No Monetization of Users</h4>
+                        <p>No ads, no premium tiers, no "acceptable advertising" deals, no affiliate tracking. Our users are not products.</p>
+                    </div>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-num">IV</div>
+                    <div>
+                        <h4>Performance Without Compromise</h4>
+                        <p>Our tools must make your browser faster, not slower. If an extension adds latency, it goes back to the lab.</p>
+                    </div>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-num">V</div>
+                    <div>
+                        <h4>User Autonomy Above All</h4>
+                        <p>Every feature must be configurable. Every rule must be overridable. We provide defaults, not mandates. Your browser, your rules.</p>
+                    </div>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-num">VI</div>
+                    <div>
+                        <h4>Resistance Is Maintenance</h4>
+                        <p>The surveillance machine evolves daily. So must our tools. We commit to active development, rapid response to new threats, and continuous improvement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="section">
+        <div class="container">
+            <div class="section-eyebrow">Operational History</div>
+            <h2 class="section-title">Timeline</h2>
+            <p class="section-subtitle" style="margin-bottom: 2.5rem;">Key moments in the resistance.</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">JUNE 2026</div>
+                    <h4>Destopian AdBlock Pro v1.0 Deployed</h4>
+                    <p>First operational tool released to the Microsoft Edge Add-ons Store. Manifest V3 compliant, zero remote code execution, full declarative net request implementation.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">JUNE 2026</div>
+                    <h4>Network Node Established</h4>
+                    <p>Destopian Pirate website goes live. All source code made public. GitHub repositories opened for community audit and contribution.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">JUNE 2026</div>
+                    <h4>Privacy Audit Passed</h4>
+                    <p>Independent review confirms zero telemetry, zero data exfiltration, zero third-party network calls in all deployed tools.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">IN PROGRESS</div>
+                    <h4>Next Agent Under Development</h4>
+                    <p>Classified. Details will be declassified upon operational readiness. Watch the signals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE 04: INTEL
+     ══════════════════════════════════════════ -->
+<div class="page-view" id="page-intel">
+
+    <section class="section">
+        <div class="container">
+            <div class="section-eyebrow">Threat Assessment</div>
+            <h2 class="section-title">Intelligence Brief</h2>
+            <p class="section-subtitle" style="margin-bottom: 2.5rem;">Current status of the digital surveillance landscape.</p>
+
+            <div class="threat-gauge">
+                <div class="gauge-visual">
+                    <span class="gauge-level">MED</span>
+                </div>
+                <div class="gauge-info">
+                    <h3>Current Threat Level: ELEVATED</h3>
+                    <p>The global advertising surveillance infrastructure continues to expand. Major browser vendors are tightening extension APIs while ad networks deploy increasingly aggressive tracking methodologies including fingerprinting, CNAME cloaking, and first-party data collection.</p>
+                    <div class="gauge-indicators">
+                        <div class="gauge-ind"><span class="gauge-ind-dot low"></span> LOW</div>
+                        <div class="gauge-ind"><span class="gauge-ind-dot med"></span> ELEVATED</div>
+                        <div class="gauge-ind"><span class="gauge-ind-dot high"></span> CRITICAL</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-eyebrow">Field Reports</div>
+            <h2 class="section-title">Intelligence Reports</h2>
+            <p class="section-subtitle" style="margin-bottom: 2.5rem;">Detailed analysis from resistance operatives.</p>
+            <div class="intel-reports">
+                <div class="intel-card">
+                    <div class="intel-card-head">
+                        <span class="intel-card-id">REPORT DPN-IR-001</span>
+                        <span class="signal-tag critical">HIGH</span>
+                    </div>
+                    <h4>Manifest V3 Transition Analysis</h4>
+                    <p>Chrome's shift to Manifest V3 fundamentally changes how ad blockers operate. The move from webRequest (blocking) to declarativeNetRequest limits dynamic rule evaluation. Our analysis: the constraint is real but manageable. Destopian AdBlock Pro was built MV3-native from the ground up — no migration required, no capability loss.</p>
+                    <div class="intel-card-meta">
+                        <span>2026.06.10</span>
+                        <span>CLASSIFICATION: PUBLIC</span>
+                    </div>
+                </div>
+                <div class="intel-card">
+                    <div class="intel-card-head">
+                        <span class="intel-card-id">REPORT DPN-IR-002</span>
+                        <span class="signal-tag update">MEDIUM</span>
+                    </div>
+                    <h4>CNAME Cloaking Threat Vector</h4>
+                    <p>Advertisers are increasingly using CNAME records to disguise tracker domains as first-party subdomains, bypassing traditional domain-based blocking. This technique is proliferating among major ad networks. We are evaluating countermeasures for future tool versions.</p>
+                    <div class="intel-card-meta">
+                        <span>2026.06.09</span>
+                        <span>CLASSIFICATION: PUBLIC</span>
+                    </div>
+                </div>
+                <div class="intel-card">
+                    <div class="intel-card-head">
+                        <span class="intel-card-id">REPORT DPN-IR-003</span>
+                        <span class="signal-tag info">INFO</span>
+                    </div>
+                    <h4>Browser Fingerprinting Report</h4>
+                    <p>Even without cookies, modern tracking techniques can identify users via browser fingerprinting — screen resolution, installed fonts, WebGL renderer, canvas hashing, and more. Current generation tools focus on request blocking; fingerprint resistance is on our roadmap.</p>
+                    <div class="intel-card-meta">
+                        <span>2026.06.08</span>
+                        <span>CLASSIFICATION: PUBLIC</span>
+                    </div>
+                </div>
+                <div class="intel-card">
+                    <div class="intel-card-head">
+                        <span class="intel-card-id">REPORT DPN-IR-004</span>
+                        <span class="signal-tag info">INFO</span>
+                    </div>
+                    <h4>First-Party Data Collection Trends</h4>
+                    <p>As third-party cookies phase out, major platforms are pivoting to first-party data strategies — walled gardens where they control both the content and the tracking infrastructure. This makes browser-level protection increasingly critical.</p>
+                    <div class="intel-card-meta">
+                        <span>2026.06.07</span>
+                        <span>CLASSIFICATION: PUBLIC</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE 05: ABOUT
+     ══════════════════════════════════════════ -->
+<div class="page-view" id="page-about">
+
+    <section class="section">
+        <div class="container">
+            <div class="section-eyebrow">Origin File</div>
+            <h2 class="section-title">About the Network</h2>
+            <p class="section-subtitle" style="margin-bottom: 3rem;">Who we are, how we started, and where we're going.</p>
+
+            <div class="about-story">
+                <div class="about-narrative">
+                    <h3>The Origin</h3>
+                    <p>Destopian Pirate was born from a simple frustration: the modern web has become hostile to the people who use it. Every page loaded is a negotiation between you and dozens of invisible entities fighting for your attention, your data, and your trust.</p>
+                    <p>We started building because we realized that complaints don't change systems. Code does. The first project — Destopian AdBlock Pro — wasn't designed to compete with existing ad blockers. It was designed to prove that you can build effective, privacy-respecting tools without any compromises.</p>
+                    <p>No "acceptable ads" programs. No whitelist deals with ad networks. No analytics SDK bundled into the extension. Just clean code that does exactly what it claims and nothing else.</p>
+                    <h3 style="margin-top: 2rem;">The Mission</h3>
+                    <p>We're building a toolkit for digital self-defense. Each extension addresses a specific threat vector in the surveillance ecosystem — from ad blocking to tracker prevention to fingerprint resistance. Every tool is built Manifest V3 native, open source, and privacy-first from day one.</p>
+                </div>
+
+                <div class="about-sidebar">
+                    <h4>Network File</h4>
+                    <div class="about-fact">
+                        <span class="about-fact-label">Founded</span>
+                        <span class="about-fact-value">2026</span>
+                    </div>
+                    <div class="about-fact">
+                        <span class="about-fact-label">Status</span>
+                        <span class="about-fact-value">ACTIVE</span>
+                    </div>
+                    <div class="about-fact">
+                        <span class="about-fact-label">License</span>
+                        <span class="about-fact-value">MIT</span>
+                    </div>
+                    <div class="about-fact">
+                        <span class="about-fact-label">Deployed Agents</span>
+                        <span class="about-fact-value">1</span>
+                    </div>
+                    <div class="about-fact">
+                        <span class="about-fact-label">Data Collected</span>
+                        <span class="about-fact-value">0 BYTES</span>
+                    </div>
+                    <div class="about-fact">
+                        <span class="about-fact-label">Platform</span>
+                        <span class="about-fact-value">EDGE</span>
+                    </div>
+                    <div class="about-fact">
+                        <span class="about-fact-label">Architecture</span>
+                        <span class="about-fact-value">MV3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-eyebrow">Technical Infrastructure</div>
+            <h2 class="section-title">Technology Stack</h2>
+            <p class="section-subtitle" style="margin-bottom: 2.5rem;">The tools and standards behind the resistance.</p>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-card-icon">📋</div>
+                    <h5>Manifest V3</h5>
+                    <p>Built on Chrome's latest extension platform from the ground up. No legacy migration, no compatibility hacks. Native declarative architecture.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-card-icon">🔥</div>
+                    <h5>Declarative Net Request</h5>
+                    <p>Blocking rules execute in the browser's network stack itself — faster than JavaScript-based filtering and more resistant to anti-adblock circumvention.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-card-icon">⚡</div>
+                    <h5>Service Workers</h5>
+                    <p>Event-driven background processing. No persistent background page consuming memory. Activates only when needed, sleeps when idle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE 06: DEAD DROP
+     ══════════════════════════════════════════ -->
+<div class="page-view" id="page-deaddrop">
+
+    <section class="section">
+        <div class="container">
+            <div class="section-eyebrow">Secure Communication</div>
+            <h2 class="section-title">Dead Drop</h2>
+            <p class="section-subtitle" style="margin-bottom: 3rem;">Channels for reaching the resistance network.</p>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">💻</div>
+                    <div>
+                        <h4>Source Archives</h4>
+                        <p>All code, documentation, and project files are maintained on GitHub. Open for audit, forking, and contribution.</p>
+                        <p style="margin-top: 0.5rem;"><a href="https://github.com/destopianpirate" target="_blank" rel="noopener">github.com/destopianpirate</a></p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">🐛</div>
+                    <div>
+                        <h4>Bug Reports</h4>
+                        <p>Found something broken? Report it through GitHub Issues on the relevant repository. Include reproduction steps and browser version.</p>
+                        <p style="margin-top: 0.5rem;"><a href="https://github.com/destopianpirate/destopian-adblocker/issues" target="_blank" rel="noopener">Submit an Issue</a></p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">🔀</div>
+                    <div>
+                        <h4>Contribute</h4>
+                        <p>Want to join the resistance? Fork a repository, make improvements, and submit a pull request. All contributions are reviewed and welcomed.</p>
+                        <p style="margin-top: 0.5rem;"><a href="https://github.com/destopianpirate/destopian-adblocker" target="_blank" rel="noopener">Fork the Code</a></p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📡</div>
+                    <div>
+                        <h4>Watch the Signals</h4>
+                        <p>Star and watch our GitHub repositories to receive notifications about new releases, updates, and tools as they drop.</p>
+                        <p style="margin-top: 0.5rem;"><a href="https://github.com/destopianpirate" target="_blank" rel="noopener">Follow on GitHub</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+        <div class="container">
+            <div class="section-eyebrow">Debriefing</div>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle" style="margin-bottom: 2.5rem;">Common inquiries answered.</p>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-q">Is Destopian AdBlock Pro really free?</button>
+                    <div class="faq-a">Yes. Completely free. No premium tier, no trial period, no "upgrade for more features." The full tool is free, open source, and will remain that way. We don't monetize our users in any form.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">Does it collect any data at all?</button>
+                    <div class="faq-a">Zero. Not anonymized usage data, not crash reports, not feature flags. The extension makes zero network requests to any server we control. All configuration and statistics are stored locally in your browser's storage API.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">Why Edge only? What about Chrome and Firefox?</button>
+                    <div class="faq-a">We started with Microsoft Edge because it shares Chrome's Manifest V3 architecture while having a smaller, more accessible add-ons review process. Chrome and Firefox versions are planned as future deployments.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">How is this different from uBlock Origin or AdBlock Plus?</button>
+                    <div class="faq-a">We aren't trying to replace established tools. Destopian AdBlock Pro was built from scratch as a Manifest V3 native extension — no legacy code, no migration compromises. Our focus is on absolute simplicity, zero data collection, and a clean modern UI. Different philosophy, different approach.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">Can I contribute to the project?</button>
+                    <div class="faq-a">Absolutely. All repositories are public on GitHub. Fork the code, submit pull requests, report bugs, or suggest features through Issues. Every contribution is reviewed and appreciated.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">What's next for Destopian Pirate?</button>
+                    <div class="faq-a">We're building a full toolkit for digital self-defense. The AdBlock Pro is just the first agent. Future tools will address tracker prevention, fingerprint resistance, and more. Watch our GitHub for announcements.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+        <div class="container">
+            <div class="cta-box">
+                <h3>Join the Resistance</h3>
+                <p>Star our repositories, share our tools, and help build the future of the open web. Every installation is a vote for privacy.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://destopianpirate.github.io/destopian-adblocker/" class="btn btn-primary">Get AdBlock Pro</a>
+                    <a href="https://github.com/destopianpirate" class="btn btn-outline" target="_blank" rel="noopener">Star on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                    <img src="assets/logo.png" alt="Destopian Pirate Logo" class="brand-logo-small">
+                    <span class="brand-name" style="font-size: 1rem;">Destopian Pirate</span>
+                </div>
+                <p class="footer-brand-desc">A decentralized collective building free, open-source tools for digital resistance. Privacy-first. No compromises.</p>
+            </div>
+            <div class="footer-col">
+                <h5>Navigation</h5>
+                <a href="#" onclick="navigateTo('home');return false;">Home</a>
+                <a href="#" onclick="navigateTo('extensions');return false;">Arsenal</a>
+                <a href="#" onclick="navigateTo('manifesto');return false;">Manifesto</a>
+                <a href="#" onclick="navigateTo('intel');return false;">Intel</a>
+            </div>
+            <div class="footer-col">
+                <h5>Network</h5>
+                <a href="#" onclick="navigateTo('about');return false;">About</a>
+                <a href="#" onclick="navigateTo('deaddrop');return false;">Dead Drop</a>
                 <a href="https://github.com/destopianpirate" target="_blank" rel="noopener">GitHub</a>
+            </div>
+            <div class="footer-col">
+                <h5>Extensions</h5>
                 <a href="https://destopianpirate.github.io/destopian-adblocker/" target="_blank" rel="noopener">AdBlock Pro</a>
+                <a href="https://github.com/destopianpirate/destopian-adblocker" target="_blank" rel="noopener">Source Code</a>
             </div>
         </div>
-        <div class="footer-copy">
-            © 2026 Destopian Pirate Network. All transmissions are public domain.
-            The watchers have no power here.
+        <div class="footer-bottom">
+            <span class="footer-copy">© 2026 DESTOPIAN PIRATE NETWORK — ALL TRANSMISSIONS PUBLIC DOMAIN</span>
+            <div class="footer-legal">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
         </div>
-    </footer>
+    </div>
+</footer>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

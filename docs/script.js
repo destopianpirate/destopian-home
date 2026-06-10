@@ -1,205 +1,206 @@
 /* ═══════════════════════════════════════════════════
-   DESTOPIAN PIRATE — Core Interface Logic
+   DESTOPIAN PIRATE — Interface Controller v2
    ═══════════════════════════════════════════════════ */
 
 (function () {
-    'use strict';
+  'use strict';
 
-    // ── Tab Navigation ──
-    const tabs = document.querySelectorAll('.nav-tab');
-    const pages = document.querySelectorAll('.page');
+  // ── Rain Effect ──
+  const rainContainer = document.getElementById('rain');
+  if (rainContainer) {
+    for (let i = 0; i < 60; i++) {
+      const drop = document.createElement('div');
+      drop.className = 'rain-drop';
+      drop.style.left = Math.random() * 100 + '%';
+      drop.style.height = (20 + Math.random() * 40) + 'px';
+      drop.style.animationDuration = (1.5 + Math.random() * 2) + 's';
+      drop.style.animationDelay = Math.random() * 3 + 's';
+      drop.style.opacity = (0.2 + Math.random() * 0.5).toString();
+      rainContainer.appendChild(drop);
+    }
+  }
 
-    function switchPage(pageId) {
-        pages.forEach(p => p.classList.remove('active'));
-        tabs.forEach(t => t.classList.remove('active'));
+  // ── Tab Navigation ──
+  const channelBtns = document.querySelectorAll('.ch-btn');
+  const pageViews = document.querySelectorAll('.page-view');
 
-        const target = document.getElementById(pageId);
-        if (target) {
-            target.classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'instant' });
-        }
+  function navigateTo(pageId) {
+    pageViews.forEach(p => p.classList.remove('active'));
+    channelBtns.forEach(b => b.classList.remove('active'));
 
-        tabs.forEach(t => {
-            if (t.dataset.page === pageId) t.classList.add('active');
-        });
+    const target = document.getElementById('page-' + pageId);
+    if (target) {
+      target.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'instant' });
     }
 
-    // Make switchPage globally accessible for inline onclick
-    window.switchPage = switchPage;
-
-    tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            switchPage(tab.dataset.page);
-        });
+    channelBtns.forEach(b => {
+      if (b.dataset.page === pageId) b.classList.add('active');
     });
 
-    // Brand logo click returns to home
-    const brandLink = document.getElementById('nav-home-link');
-    if (brandLink) {
-        brandLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            switchPage('page-home');
-        });
-    }
+    // Close mobile menu
+    const strip = document.getElementById('channel-strip');
+    if (strip) strip.classList.remove('open');
 
-    // ── Manifesto Timestamp ──
-    const tsEl = document.getElementById('manifesto-ts');
-    if (tsEl) {
-        const now = new Date();
-        const y = now.getFullYear();
-        const m = String(now.getMonth() + 1).padStart(2, '0');
-        const d = String(now.getDate()).padStart(2, '0');
-        const h = String(now.getHours()).padStart(2, '0');
-        const min = String(now.getMinutes()).padStart(2, '0');
-        tsEl.textContent = `${y}.${m}.${d} // ${h}:${min} LOCAL`;
-    }
+    // Update URL hash
+    history.replaceState(null, '', '#' + pageId);
 
-    // ── Redacted Text Reveal ──
-    document.querySelectorAll('.redacted').forEach(el => {
-        el.addEventListener('click', () => {
-            el.style.background = 'transparent';
-            el.style.color = 'var(--amber)';
-            el.style.cursor = 'default';
-        });
+    // Trigger counter animations if going to home
+    if (pageId === 'home') {
+      setTimeout(startCounters, 300);
+      setTimeout(animateStatBars, 500);
+    }
+  }
+
+  window.navigateTo = navigateTo;
+
+  channelBtns.forEach(btn => {
+    btn.addEventListener('click', () => navigateTo(btn.dataset.page));
+  });
+
+  // Brand click → home
+  const brandHome = document.getElementById('brand-home');
+  if (brandHome) {
+    brandHome.addEventListener('click', () => navigateTo('home'));
+  }
+
+  // Mobile toggle
+  const mobileToggle = document.getElementById('mobile-toggle');
+  const channelStrip = document.getElementById('channel-strip');
+  if (mobileToggle && channelStrip) {
+    mobileToggle.addEventListener('click', () => {
+      channelStrip.classList.toggle('open');
     });
+  }
 
-    // ── Terminal Typewriter ──
-    const terminalLines = [
-        { text: '> initializing destopian_pirate_network...', cls: 'prompt' },
-        { text: '  [OK] core systems online', cls: 'val' },
-        { text: '  [OK] encryption protocols active', cls: 'val' },
-        { text: '  [OK] surveillance countermeasures deployed', cls: 'val' },
-        { text: '' },
-        { text: '> scanning deployed agents...', cls: 'prompt' },
-        { text: '  AGENT DTP-001: Destopian AdBlock Pro', cls: 'val' },
-        { text: '    status: OPERATIONAL', cls: 'val' },
-        { text: '    platform: Microsoft Edge (Manifest V3)', cls: 'muted' },
-        { text: '    threats neutralized: ads, trackers, popups', cls: 'muted' },
-        { text: '' },
-        { text: '> network uptime: 99.97%', cls: 'prompt' },
-        { text: '> active nodes: 1', cls: 'prompt' },
-        { text: '> data collected from users: 0 bytes', cls: 'val' },
-        { text: '> telemetry connections: NONE', cls: 'val' },
-        { text: '' },
-        { text: '  ██████████████████████ 100%', cls: 'val' },
-        { text: '' },
-        { text: '> all systems nominal. the watchers have no power here.', cls: 'warn' },
-    ];
+  // Hash routing
+  function handleHash() {
+    const hash = window.location.hash.replace('#', '');
+    if (hash && document.getElementById('page-' + hash)) {
+      navigateTo(hash);
+    }
+  }
+  window.addEventListener('hashchange', handleHash);
+  if (window.location.hash) handleHash();
 
-    const termOutput = document.getElementById('terminal-output');
-    let lineIndex = 0;
+  // ── Animated Counters ──
+  let countersStarted = false;
 
-    function typeTermLine() {
-        if (!termOutput || lineIndex >= terminalLines.length) {
-            // Add blinking cursor at end
-            if (termOutput) {
-                const cursorSpan = document.createElement('span');
-                cursorSpan.className = 'term-cursor';
-                termOutput.appendChild(cursorSpan);
-            }
-            return;
-        }
+  function startCounters() {
+    if (countersStarted) return;
+    countersStarted = true;
 
-        const entry = terminalLines[lineIndex];
-        const div = document.createElement('div');
-        div.className = 'term-line';
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+      const target = parseFloat(counter.dataset.target);
+      const duration = 1800;
+      const startTime = performance.now();
+      const isFloat = target % 1 !== 0;
 
-        if (entry.text === '') {
-            div.innerHTML = '&nbsp;';
+      function updateCounter(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        // Ease-out cubic
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = target * eased;
+
+        if (isFloat) {
+          counter.textContent = current.toFixed(2);
         } else {
-            const span = document.createElement('span');
-            span.className = entry.cls || '';
-            div.appendChild(span);
-
-            // Typewriter character by character
-            let charIdx = 0;
-            const text = entry.text;
-            const typeChar = () => {
-                if (charIdx < text.length) {
-                    span.textContent += text[charIdx];
-                    charIdx++;
-                    setTimeout(typeChar, 12 + Math.random() * 8);
-                } else {
-                    lineIndex++;
-                    setTimeout(typeTermLine, 80 + Math.random() * 120);
-                }
-            };
-
-            div.style.animationDelay = '0s';
-            termOutput.appendChild(div);
-            typeChar();
-            // Scroll terminal to bottom
-            termOutput.scrollTop = termOutput.scrollHeight;
-            return;
+          counter.textContent = Math.round(current);
         }
 
-        div.style.animationDelay = '0s';
-        termOutput.appendChild(div);
-        termOutput.scrollTop = termOutput.scrollHeight;
-        lineIndex++;
-        setTimeout(typeTermLine, 60);
-    }
-
-    // Start terminal when visible via IntersectionObserver
-    const termSection = document.querySelector('.terminal-section');
-    let termStarted = false;
-
-    if (termSection && 'IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !termStarted) {
-                    termStarted = true;
-                    setTimeout(typeTermLine, 400);
-                    observer.disconnect();
-                }
-            });
-        }, { threshold: 0.3 });
-
-        observer.observe(termSection);
-    } else if (termSection) {
-        // Fallback: start immediately
-        setTimeout(typeTermLine, 800);
-    }
-
-    // ── Signal Card Hover Flicker ──
-    document.querySelectorAll('.signal-card').forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.style.opacity = '0.7';
-            setTimeout(() => { card.style.opacity = '1'; }, 60);
-            setTimeout(() => { card.style.opacity = '0.85'; }, 120);
-            setTimeout(() => { card.style.opacity = '1'; }, 180);
-        });
-    });
-
-    // ── Dossier Card Hover Flicker ──
-    document.querySelectorAll('.dossier:not(.dossier-coming)').forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.style.filter = 'brightness(1.15)';
-            setTimeout(() => { card.style.filter = 'brightness(0.9)'; }, 50);
-            setTimeout(() => { card.style.filter = 'brightness(1.05)'; }, 100);
-            setTimeout(() => { card.style.filter = 'brightness(1)'; }, 150);
-        });
-
-        card.addEventListener('mouseleave', () => {
-            card.style.filter = 'brightness(1)';
-        });
-    });
-
-    // ── URL Hash Routing ──
-    function handleHash() {
-        const hash = window.location.hash.replace('#', '');
-        if (hash === 'extensions') {
-            switchPage('page-extensions');
+        if (progress < 1) {
+          requestAnimationFrame(updateCounter);
         } else {
-            switchPage('page-home');
+          if (isFloat) {
+            counter.textContent = target.toFixed(2);
+          } else {
+            counter.textContent = target;
+          }
         }
-    }
+      }
 
-    window.addEventListener('hashchange', handleHash);
+      requestAnimationFrame(updateCounter);
+    });
+  }
 
-    // Check hash on load
-    if (window.location.hash) {
-        handleHash();
-    }
+  function animateStatBars() {
+    const bars = document.querySelectorAll('.stat-bar-fill');
+    bars.forEach(bar => {
+      const targetWidth = bar.dataset.width;
+      if (targetWidth) {
+        setTimeout(() => { bar.style.width = targetWidth; }, 100);
+      }
+    });
+  }
+
+  // Start counters on initial load if home is active
+  const homeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        startCounters();
+        animateStatBars();
+        homeObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.2 });
+
+  const statsSection = document.querySelector('.stats-strip');
+  if (statsSection) homeObserver.observe(statsSection);
+
+  // ── FAQ Toggle ──
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const answer = btn.nextElementSibling;
+      const isOpen = btn.classList.contains('open');
+
+      // Close all others
+      document.querySelectorAll('.faq-q').forEach(q => {
+        q.classList.remove('open');
+        q.nextElementSibling.classList.remove('open');
+      });
+
+      if (!isOpen) {
+        btn.classList.add('open');
+        answer.classList.add('open');
+      }
+    });
+  });
+
+  // ── Card Hover Micro-interactions ──
+  const interactiveCards = document.querySelectorAll(
+    '.pillar-card, .signal-item, .intel-card, .principle-card, .tech-card, .contact-card'
+  );
+
+  interactiveCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transition = 'all 0.3s ease';
+    });
+  });
+
+  // ── Smooth Appear on Scroll ──
+  const revealElements = document.querySelectorAll(
+    '.pillar-card, .signal-item, .stat-cell, .ext-feature, ' +
+    '.principle-card, .timeline-item, .intel-card, .tech-card, ' +
+    '.contact-card, .faq-item, .step-item'
+  );
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, idx) => {
+      if (entry.isIntersecting) {
+        entry.target.style.transition = `opacity 0.5s ease ${idx * 0.05}s, transform 0.5s ease ${idx * 0.05}s`;
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  revealElements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(16px)';
+    revealObserver.observe(el);
+  });
 
 })();
