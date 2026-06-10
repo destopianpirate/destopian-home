@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destopian Pirate — Transmission from Destopia</title>
+    <meta name="description" content="Destopian Pirate: Digital resistance tools for the surveillance age. Browser extensions engineered for privacy, speed, and absolute control.">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ═══ NAVIGATION ═══ -->
+    <nav class="nav-bar" id="navbar">
+        <a href="#" class="nav-brand" id="nav-home-link">
+            <div class="nav-brand-icon">DP</div>
+            <span class="nav-brand-text">Destopian</span>
+            <span class="nav-brand-sub">Pirate Network</span>
+        </a>
+
+        <div class="nav-tabs" id="nav-tabs">
+            <button class="nav-tab active" data-page="page-home">Home</button>
+            <button class="nav-tab" data-page="page-extensions">Extensions</button>
+        </div>
+
+        <div class="nav-status">
+            <span class="status-dot"></span>
+            <span>SIGNAL ACTIVE</span>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════
+         PAGE: HOME — Welcome to Destopia
+         ═══════════════════════════════════ -->
+    <div class="page active" id="page-home">
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-tag">⬡ Broadcast Frequency 47.3 MHz</div>
+
+            <h1 class="hero-title">
+                <span class="hero-title-corrupt" aria-hidden="true">DESTOPIAN<br>PIRATE</span>
+                DESTOPIAN<br><span class="accent">PIRATE</span>
+            </h1>
+
+            <p class="hero-sub">
+                We build tools for those who refuse to be watched.
+                Digital resistance software — engineered in the ruins of the open web,
+                deployed against surveillance capitalism.
+            </p>
+
+            <div class="hero-actions">
+                <button class="btn-deploy" onclick="switchPage('page-extensions')">
+                    ◈ Enter the Arsenal
+                </button>
+                <a href="https://github.com/destopianpirate" class="btn-ghost" target="_blank" rel="noopener">
+                    ⌘ Source Archives
+                </a>
+            </div>
+        </section>
+
+        <!-- Manifesto -->
+        <section class="manifesto">
+            <div class="manifesto-inner">
+                <div class="manifesto-label">
+                    ◉ Intercepted Transmission — Directive #001
+                </div>
+
+                <div class="manifesto-block">
+                    <p class="manifesto-text">
+                        The open web is under siege. Every click is catalogued.
+                        Every search is <span class="redacted">profiled</span>.
+                        Every page you visit feeds a machine designed to
+                        <span class="redacted">predict and control</span> your behavior.
+                        <br><br>
+                        We are Destopian Pirate — a decentralized collective building
+                        free, open-source resistance tools. Our extensions don't
+                        phone home. They don't harvest data. They don't serve ads.
+                        They exist for one purpose: to give you back what was taken.
+                        <br><br>
+                        Your browser. Your data. <span class="redacted">Your freedom</span>.
+                    </p>
+
+                    <div class="manifesto-sig">
+                        — SIGNAL ORIGIN: DESTOPIAN PIRATE NETWORK
+                        &nbsp;|&nbsp; TIMESTAMP: <span id="manifesto-ts"></span>
+                        &nbsp;|&nbsp; STATUS: UNREDACTED
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Status Terminal -->
+        <section class="terminal-section">
+            <div class="terminal-wrapper">
+                <div class="terminal-chrome">
+                    <span class="term-dot r"></span>
+                    <span class="term-dot y"></span>
+                    <span class="term-dot g"></span>
+                    <span class="terminal-title-bar">destopian@pirate:~$ system_status</span>
+                </div>
+                <div class="terminal-body" id="terminal-output">
+                    <!-- Lines injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Intercepted Signals -->
+        <section class="signals">
+            <div class="section-label">
+                ◉ Intercepted Signals — Latest Activity
+            </div>
+
+            <div class="signal-grid">
+                <div class="signal-card">
+                    <div class="signal-meta">
+                        <span class="signal-time">2026.06.10 // 09:41 UTC</span>
+                        <span class="signal-class priority">Priority</span>
+                    </div>
+                    <div class="signal-title">Destopian AdBlock Pro v1.0 Deployed</div>
+                    <div class="signal-body">
+                        First field-tested tool now live on the Microsoft Edge Add-ons Store.
+                        Manifest V3 architecture. Declarative Net Request engine.
+                        Zero remote code execution. Status: Operational.
+                    </div>
+                </div>
+
+                <div class="signal-card">
+                    <div class="signal-meta">
+                        <span class="signal-time">2026.06.10 // 08:12 UTC</span>
+                        <span class="signal-class standard">Standard</span>
+                    </div>
+                    <div class="signal-title">Network Node Established</div>
+                    <div class="signal-body">
+                        Destopian Pirate homepage now broadcasting on GitHub Pages.
+                        All source archives public and auditable. Resistance infrastructure online.
+                    </div>
+                </div>
+
+                <div class="signal-card">
+                    <div class="signal-meta">
+                        <span class="signal-time">2026.06.09 // 23:55 UTC</span>
+                        <span class="signal-class routine">Routine</span>
+                    </div>
+                    <div class="signal-title">Privacy Audit Complete</div>
+                    <div class="signal-body">
+                        Full audit confirms: zero data collection, zero telemetry,
+                        zero third-party connections. All user data stored locally only.
+                        Compliance verified.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ═══════════════════════════════════
+         PAGE: EXTENSIONS — The Arsenal
+         ═══════════════════════════════════ -->
+    <div class="page" id="page-extensions">
+
+        <section class="arsenal">
+            <div class="arsenal-header">
+                <div class="arsenal-tag">◈ Resistance Toolkit</div>
+                <h1 class="arsenal-title">The Arsenal</h1>
+                <p class="arsenal-sub">
+                    Field-tested browser extensions for digital self-defense.
+                    Open source. Privacy-first. No compromises.
+                </p>
+            </div>
+
+            <div class="dossier-grid">
+
+                <!-- Dossier: AdBlock Pro -->
+                <div class="dossier">
+                    <div class="dossier-stamp">DEPLOYED</div>
+
+                    <div class="dossier-top">
+                        <span class="dossier-id">DOSSIER // DTP-001</span>
+                        <span class="dossier-clearance">◉ Operational</span>
+                    </div>
+
+                    <div class="dossier-content">
+                        <div class="dossier-icon-wrap">
+                            <img src="assets/shield_logo.png" alt="Destopian AdBlock Pro Shield">
+                        </div>
+
+                        <div class="dossier-info">
+                            <h3>Destopian AdBlock Pro</h3>
+                            <div class="dossier-version">VERSION 1.0.0 // MANIFEST V3 // EDGE</div>
+
+                            <p class="dossier-desc">
+                                High-performance ad and tracker blocker powered by the
+                                Declarative Net Request engine. Intercepts surveillance
+                                scripts, advertising payloads, and popup intrusions at
+                                the network layer — before they reach your browser.
+                                Features a real-time control dashboard, smart whitelisting,
+                                custom filter rules, and live blocking statistics.
+                            </p>
+
+                            <div class="dossier-stats">
+                                <div class="dstat">
+                                    <span class="dstat-val">20+</span>
+                                    <span class="dstat-label">Rules Active</span>
+                                </div>
+                                <div class="dstat">
+                                    <span class="dstat-val">0ms</span>
+                                    <span class="dstat-label">Render Delay</span>
+                                </div>
+                                <div class="dstat">
+                                    <span class="dstat-val">0 KB</span>
+                                    <span class="dstat-label">Data Collected</span>
+                                </div>
+                            </div>
+
+                            <div class="dossier-actions">
+                                <a href="https://destopianpirate.github.io/destopian-adblocker/" class="btn-deploy" id="btn-edge-store">
+                                    ◈ View AdBlock Pro
+                                </a>
+                                <a href="https://github.com/destopianpirate/destopian-adblocker" class="btn-ghost" target="_blank" rel="noopener">
+                                    ⌘ Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coming Soon Placeholder -->
+                <div class="dossier dossier-coming">
+                    <div class="coming-inner">
+                        <div class="icon-placeholder">?</div>
+                        <p>Next Tool — Under Development</p>
+                        <p class="sub">Classification pending // Watch the signals</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">◈ Destopian Pirate</div>
+            <div class="footer-links">
+                <a href="https://github.com/destopianpirate" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://github.com/destopianpirate/destopian-adblocker" target="_blank" rel="noopener">AdBlock Pro</a>
+            </div>
+        </div>
+        <div class="footer-copy">
+            © 2026 Destopian Pirate Network. All transmissions are public domain.
+            The watchers have no power here.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
