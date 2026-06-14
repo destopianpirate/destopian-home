@@ -188,7 +188,8 @@
   const revealElements = document.querySelectorAll(
     '.pillar-card, .signal-item, .stat-cell, .ext-feature, ' +
     '.principle-card, .timeline-item, .intel-card, .tech-card, ' +
-    '.contact-card, .faq-item, .step-item'
+    '.contact-card, .faq-item, .step-item, ' +
+    '.vg-hero-card, .vg-platform-card, .vg-enhancer-feature'
   );
 
   if (window.IntersectionObserver) {
