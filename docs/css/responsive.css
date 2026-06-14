@@ -1,0 +1,145 @@
+/* ═══ RESPONSIVE / MEDIA QUERIES ═══ */
+@media (max-width: 1024px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .hero-visual { display: none; }
+  .pillars-grid { grid-template-columns: 1fr; }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); }
+  .stat-cell:nth-child(3) { border-left: none; }
+  .signal-feed { grid-template-columns: 1fr; }
+  .ext-featured-header { grid-template-columns: 1fr; }
+  .ext-features-grid { grid-template-columns: 1fr; }
+  .ext-stats-row { grid-template-columns: repeat(2, 1fr); }
+  .about-story { grid-template-columns: 1fr; }
+  .intel-reports { grid-template-columns: 1fr; }
+  .principles-grid { grid-template-columns: 1fr; }
+  .steps-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .steps-grid::before { display: none; }
+  .tech-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+
+@media (max-width: 768px) {
+  .command-bar-inner { padding: 0 1rem; }
+  .brand-tag { display: none; }
+  .sys-indicators { display: none; }
+  .channel-strip { display: none; }
+  .channel-strip.open {
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background: var(--deep);
+    border-bottom: 1px solid var(--border);
+    padding: 0.5rem;
+    justify-content: center;
+  }
+  .channel-strip.open .ch-btn { height: auto; padding: 0.6rem 1rem; }
+  .mobile-toggle { display: block; }
+  .container { padding: 0 1.25rem; }
+  .section { padding: 3.5rem 0; }
+  .hero { min-height: auto; padding: 3rem 0; }
+  .hero h1 { font-size: 2.2rem; }
+  .hero-actions { flex-direction: column; align-items: flex-start; }
+  .stats-strip { grid-template-columns: 1fr; }
+  .stat-cell + .stat-cell { border-left: none; border-top: 1px solid var(--border); }
+  .manifesto-header, .manifesto-body { padding: 1.75rem; }
+  .manifesto-stamp { top: 1rem; right: 1rem; font-size: 0.7rem; }
+  .ext-featured-header { padding: 1.5rem; }
+  .ext-featured-body { padding: 1.5rem; }
+  .ext-stats-row { grid-template-columns: repeat(2, 1fr); }
+  .ext-actions { flex-direction: column; }
+  .ext-actions .btn { width: 100%; justify-content: center; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+  .threat-gauge { flex-direction: column; text-align: center; }
+  .gauge-indicators { justify-content: center; }
+
+  /* Mobile adjustments for capsule elements */
+  .threat-gauge {
+    border-radius: 28px;
+    padding: 2rem 1.5rem;
+  }
+  .tech-card {
+    border-radius: 28px;
+    padding: 1.75rem 2.2rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .tech-bg-svg {
+    position: static;
+    transform: none;
+    margin-top: 1rem;
+    width: 32px;
+    height: 32px;
+    opacity: 0.25;
+  }
+  .tech-card:hover .tech-bg-svg {
+    transform: none;
+  }
+  .contact-card {
+    border-radius: 28px;
+    padding: 1.75rem 2.2rem;
+  }
+  .contact-bg-svg {
+    position: static;
+    transform: none;
+    margin-top: 1rem;
+    width: 32px;
+    height: 32px;
+    opacity: 0.25;
+    display: block;
+  }
+  .contact-card:hover .contact-bg-svg {
+    transform: none;
+  }
+  .principle-card {
+    border-radius: 28px;
+    padding: 1.5rem 2rem;
+  }
+  .pillar-card {
+    border-radius: 28px;
+    padding: 1.75rem 2.2rem;
+  }
+  .pillar-bg-svg {
+    position: static;
+    transform: none;
+    margin-top: 1rem;
+    width: 36px;
+    height: 36px;
+    opacity: 0.25;
+    display: block;
+  }
+  .pillar-card:hover .pillar-bg-svg {
+    transform: none;
+  }
+  .ext-feature {
+    border-radius: 24px;
+    padding: 1.25rem 1.75rem;
+  }
+  .ext-feature-bg-svg {
+    position: static;
+    transform: none;
+    margin-top: 1rem;
+    width: 32px;
+    height: 32px;
+    opacity: 0.25;
+    display: block;
+  }
+  .ext-feature:hover .ext-feature-bg-svg {
+    transform: none;
+  }
+  .ext-stat {
+    border-radius: 20px;
+    padding: 1rem 1.25rem;
+  }
+  .manifesto-body blockquote {
+    border-radius: 24px;
+    padding: 1.25rem 2rem;
+  }
+  .stats-strip {
+    border-radius: 24px;
+  }
+}

@@ -1,0 +1,96 @@
+/* ═══ RAIN EFFECT ═══ */
+.rain-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+  overflow: hidden;
+  opacity: 0.08;
+}
+
+.rain-drop {
+  position: absolute;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--signal));
+  animation: rain-fall linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes rain-fall {
+  0% { transform: translateY(-100px); }
+  100% { transform: translateY(100vh); }
+}
+
+/* ═══ SCANLINES ═══ */
+.scanlines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 2px,
+    rgba(0,0,0,0.015) 2px, rgba(0,0,0,0.015) 4px
+  );
+}
+
+/* ═══ HERO RADAR ANIMATION ═══ */
+.radar-ring {
+  position: absolute;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  animation: radar-spin 20s linear infinite;
+}
+
+.radar-ring:nth-child(1) { width: 350px; height: 350px; }
+.radar-ring:nth-child(2) { width: 260px; height: 260px; opacity: 0.7; animation-duration: 15s; animation-direction: reverse; }
+.radar-ring:nth-child(3) { width: 170px; height: 170px; opacity: 0.4; animation-duration: 25s; }
+
+@keyframes radar-spin {
+  to { transform: rotate(360deg); }
+}
+
+.radar-sweep {
+  position: absolute;
+  width: 175px;
+  height: 175px;
+  background: conic-gradient(from 0deg, transparent 0deg, var(--ember-soft) 40deg, transparent 80deg);
+  border-radius: 50%;
+  animation: radar-spin 4s linear infinite;
+}
+
+.radar-node {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--signal);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--signal-glow);
+  animation: node-blink 3s ease infinite;
+}
+
+.radar-node:nth-child(5) { top: 30%; left: 25%; animation-delay: 0.5s; }
+.radar-node:nth-child(6) { top: 55%; left: 70%; animation-delay: 1.2s; }
+.radar-node:nth-child(7) { top: 20%; left: 65%; animation-delay: 0.8s; width: 6px; height: 6px; }
+.radar-node:nth-child(8) { top: 70%; left: 35%; animation-delay: 2.1s; width: 6px; height: 6px; }
+.radar-node:nth-child(9) { top: 45%; left: 45%; animation-delay: 0s; width: 12px; height: 12px; background: var(--ember); box-shadow: 0 0 16px var(--ember-glow); }
+
+@keyframes node-blink {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.radar-label {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  color: var(--text-tertiary);
+  letter-spacing: 1px;
+}
+
+.radar-label:nth-of-type(1) { top: 10%; right: 15%; }
+.radar-label:nth-of-type(2) { bottom: 15%; left: 10%; }
+
+@keyframes sys-pulse {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}

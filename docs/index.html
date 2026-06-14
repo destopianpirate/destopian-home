@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Destopian Pirate — The World Is Watching. We Watch Back.</title>
     <meta name="description" content="Destopian Pirate: A decentralized collective building free, open-source resistance tools for digital self-defense. Privacy-first browser extensions.">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
@@ -25,18 +25,18 @@
         <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation">☰ MENU</button>
 
         <div class="channel-strip" id="channel-strip">
-            <button class="ch-btn active" data-page="home"><span class="ch-num">01</span> Home</button>
-            <button class="ch-btn" data-page="extensions"><span class="ch-num">02</span> Arsenal</button>
-            <button class="ch-btn" data-page="manifesto"><span class="ch-num">03</span> Manifesto</button>
-            <button class="ch-btn" data-page="intel"><span class="ch-num">04</span> Intel</button>
-            <button class="ch-btn" data-page="about"><span class="ch-num">05</span> About</button>
-            <button class="ch-btn" data-page="deaddrop"><span class="ch-num">06</span> Dead Drop</button>
+            <button class="ch-btn active" data-page="home">Home</button>
+            <button class="ch-btn" data-page="extensions">Arsenal</button>
+            <button class="ch-btn" data-page="manifesto">Manifesto</button>
+            <button class="ch-btn" data-page="intel">Intel</button>
+            <button class="ch-btn" data-page="about">About</button>
+            <button class="ch-btn" data-page="deaddrop">Dead Drop</button>
         </div>
 
-        <div class="sys-indicators">
-            <div class="sys-dot">ONLINE</div>
-            <div class="sys-dot">ENCRYPTED</div>
-        </div>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
+            <span class="theme-icon">🌙</span>
+            <span class="theme-label">THEME // DARK</span>
+        </button>
     </div>
 </nav>
 
@@ -96,19 +96,32 @@
             </p>
             <div class="pillars-grid">
                 <div class="pillar-card">
-                    <div class="pillar-icon privacy">🛡</div>
-                    <h3>Absolute Privacy</h3>
-                    <p>Zero data collection. Zero telemetry. Zero third-party connections. Your browsing data never leaves your machine — not even aggregated, not even anonymized. We don't want it. Period.</p>
+                    <div class="pillar-info-wrap">
+                        <h3>Absolute Privacy</h3>
+                        <p>Zero data collection. Zero telemetry. Zero third-party connections. Your browsing data never leaves your machine — not even aggregated, not even anonymized. We don't want it. Period.</p>
+                    </div>
+                    <svg class="pillar-bg-svg privacy-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
                 </div>
                 <div class="pillar-card">
-                    <div class="pillar-icon freedom">⚡</div>
-                    <h3>Digital Freedom</h3>
-                    <p>The web should belong to the people who use it, not the corporations who monetize it. Our tools strip away the surveillance layer and return the web to its original promise: open, free, and yours.</p>
+                    <div class="pillar-info-wrap">
+                        <h3>Digital Freedom</h3>
+                        <p>The web should belong to the people who use it, not the corporations who monetize it. Our tools strip away the surveillance layer and return the web to its original promise: open, free, and yours.</p>
+                    </div>
+                    <svg class="pillar-bg-svg freedom-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                    </svg>
                 </div>
                 <div class="pillar-card">
-                    <div class="pillar-icon opensource">⌘</div>
-                    <h3>Open Source</h3>
-                    <p>Every line of code is public. Every decision is auditable. We don't ask you to trust us — we give you the source and let you verify. Fork it, audit it, improve it. That's the point.</p>
+                    <div class="pillar-info-wrap">
+                        <h3>Open Source</h3>
+                        <p>Every line of code is public. Every decision is auditable. We don't ask you to trust us — we give you the source and let you verify. Fork it, audit it, improve it. That's the point.</p>
+                    </div>
+                    <svg class="pillar-bg-svg opensource-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6"/>
+                        <polyline points="8 6 2 12 8 18"/>
+                    </svg>
                 </div>
             </div>
         </div>
@@ -212,32 +225,55 @@
                     <div class="section-eyebrow" style="margin-bottom: 1.5rem;">Capabilities</div>
                     <div class="ext-features-grid">
                         <div class="ext-feature">
-                            <div class="ext-feature-icon">🎯</div>
-                            <div>
+                            <div class="ext-feature-info-wrap">
                                 <h5>Network-Level Blocking</h5>
                                 <p>Intercepts and neutralizes ad requests before they consume bandwidth or render on the page. Zero visual flicker.</p>
                             </div>
+                            <svg class="ext-feature-bg-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="22" y1="12" x2="18" y2="12"/>
+                                <line x1="6" y1="12" x2="2" y2="12"/>
+                                <line x1="12" y1="6" x2="12" y2="2"/>
+                                <line x1="12" y1="22" x2="12" y2="18"/>
+                            </svg>
                         </div>
                         <div class="ext-feature">
-                            <div class="ext-feature-icon">📊</div>
-                            <div>
+                            <div class="ext-feature-info-wrap">
                                 <h5>Real-Time Dashboard</h5>
                                 <p>Live statistics showing blocked requests per session. Monitor exactly what's being neutralized in real time.</p>
                             </div>
+                            <svg class="ext-feature-bg-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="20" x2="18" y2="10"/>
+                                <line x1="12" y1="20" x2="12" y2="4"/>
+                                <line x1="6" y1="20" x2="6" y2="14"/>
+                            </svg>
                         </div>
                         <div class="ext-feature">
-                            <div class="ext-feature-icon">⚙️</div>
-                            <div>
+                            <div class="ext-feature-info-wrap">
                                 <h5>Smart Whitelisting</h5>
                                 <p>Surgically disable blocking on trusted domains without compromising protection everywhere else. One-click toggle.</p>
                             </div>
+                            <svg class="ext-feature-bg-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="4" y1="21" x2="4" y2="14"/>
+                                <line x1="4" y1="10" x2="4" y2="3"/>
+                                <line x1="12" y1="21" x2="12" y2="12"/>
+                                <line x1="12" y1="8" x2="12" y2="3"/>
+                                <line x1="20" y1="21" x2="20" y2="16"/>
+                                <line x1="20" y1="12" x2="20" y2="3"/>
+                                <line x1="1" y1="14" x2="7" y2="14"/>
+                                <line x1="9" y1="8" x2="15" y2="8"/>
+                                <line x1="17" y1="16" x2="23" y2="16"/>
+                            </svg>
                         </div>
                         <div class="ext-feature">
-                            <div class="ext-feature-icon">🔒</div>
-                            <div>
+                            <div class="ext-feature-info-wrap">
                                 <h5>Zero Data Collection</h5>
                                 <p>No telemetry, no analytics, no phone-home behavior. All configuration stored locally in your browser.</p>
                             </div>
+                            <svg class="ext-feature-bg-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+                                <line x1="1" y1="1" x2="23" y2="23"/>
+                            </svg>
                         </div>
                     </div>
 
@@ -575,19 +611,33 @@
             <p class="section-subtitle" style="margin-bottom: 2.5rem;">The tools and standards behind the resistance.</p>
             <div class="tech-grid">
                 <div class="tech-card">
-                    <div class="tech-card-icon">📋</div>
-                    <h5>Manifest V3</h5>
-                    <p>Built on Chrome's latest extension platform from the ground up. No legacy migration, no compatibility hacks. Native declarative architecture.</p>
+                    <div class="tech-info-wrap">
+                        <h5>Manifest V3</h5>
+                        <p>Built on Chrome's latest extension platform from the ground up. No legacy migration, no compatibility hacks. Native declarative architecture.</p>
+                    </div>
+                    <svg class="tech-bg-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
                 </div>
                 <div class="tech-card">
-                    <div class="tech-card-icon">🔥</div>
-                    <h5>Declarative Net Request</h5>
-                    <p>Blocking rules execute in the browser's network stack itself — faster than JavaScript-based filtering and more resistant to anti-adblock circumvention.</p>
+                    <div class="tech-info-wrap">
+                        <h5>Declarative Net Request</h5>
+                        <p>Blocking rules execute in the browser's network stack itself — faster than JavaScript-based filtering and more resistant to anti-adblock circumvention.</p>
+                    </div>
+                    <svg class="tech-bg-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="m9 11 2 2 4-4"/>
+                    </svg>
                 </div>
                 <div class="tech-card">
-                    <div class="tech-card-icon">⚡</div>
-                    <h5>Service Workers</h5>
-                    <p>Event-driven background processing. No persistent background page consuming memory. Activates only when needed, sleeps when idle.</p>
+                    <div class="tech-info-wrap">
+                        <h5>Service Workers</h5>
+                        <p>Event-driven background processing. No persistent background page consuming memory. Activates only when needed, sleeps when idle.</p>
+                    </div>
+                    <svg class="tech-bg-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                    </svg>
                 </div>
             </div>
         </div>
@@ -607,36 +657,49 @@
 
             <div class="contact-grid">
                 <div class="contact-card">
-                    <div class="contact-icon">💻</div>
-                    <div>
+                    <div class="contact-info-wrap">
                         <h4>Source Archives</h4>
                         <p>All code, documentation, and project files are maintained on GitHub. Open for audit, forking, and contribution.</p>
                         <p style="margin-top: 0.5rem;"><a href="https://github.com/destopianpirate" target="_blank" rel="noopener">github.com/destopianpirate</a></p>
                     </div>
+                    <svg class="contact-bg-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6"/>
+                        <polyline points="8 6 2 12 8 18"/>
+                    </svg>
                 </div>
                 <div class="contact-card">
-                    <div class="contact-icon">🐛</div>
-                    <div>
+                    <div class="contact-info-wrap">
                         <h4>Bug Reports</h4>
                         <p>Found something broken? Report it through GitHub Issues on the relevant repository. Include reproduction steps and browser version.</p>
                         <p style="margin-top: 0.5rem;"><a href="https://github.com/destopianpirate/destopian-adblocker/issues" target="_blank" rel="noopener">Submit an Issue</a></p>
                     </div>
+                    <svg class="contact-bg-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="8" height="14" x="8" y="6" rx="4"/>
+                        <path d="m19 7-3 2M5 7l3 2m-4 5h4m12 0h-4m-3 4 3 2m-9-2-3 2M12 2v4"/>
+                    </svg>
                 </div>
                 <div class="contact-card">
-                    <div class="contact-icon">🔀</div>
-                    <div>
+                    <div class="contact-info-wrap">
                         <h4>Contribute</h4>
                         <p>Want to join the resistance? Fork a repository, make improvements, and submit a pull request. All contributions are reviewed and welcomed.</p>
                         <p style="margin-top: 0.5rem;"><a href="https://github.com/destopianpirate/destopian-adblocker" target="_blank" rel="noopener">Fork the Code</a></p>
                     </div>
+                    <svg class="contact-bg-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="18" cy="18" r="3"/>
+                        <circle cx="6" cy="6" r="3"/>
+                        <circle cx="6" cy="18" r="3"/>
+                        <path d="M18 15V9a4 4 0 0 0-4-4H9M6 9v6"/>
+                    </svg>
                 </div>
                 <div class="contact-card">
-                    <div class="contact-icon">📡</div>
-                    <div>
+                    <div class="contact-info-wrap">
                         <h4>Watch the Signals</h4>
                         <p>Star and watch our GitHub repositories to receive notifications about new releases, updates, and tools as they drop.</p>
                         <p style="margin-top: 0.5rem;"><a href="https://github.com/destopianpirate" target="_blank" rel="noopener">Follow on GitHub</a></p>
                     </div>
+                    <svg class="contact-bg-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9M19.1 4.9c3.9 3.9 3.9 10.2 0 14.1M7.7 16.3c-2.4-2.4-2.4-6.2 0-8.6M16.3 7.7c2.4 2.4 2.4 6.2 0 8.6M12 12m-1 0a1 1 0 1 0 2 0 1 1 0 1 0-2 0"/>
+                    </svg>
                 </div>
             </div>
         </div>
@@ -732,6 +795,6 @@
     </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="script.js?v=3"></script>
 </body>
 </html>

@@ -136,18 +136,23 @@
   }
 
   // Start counters on initial load if home is active
-  const homeObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        startCounters();
-        animateStatBars();
-        homeObserver.disconnect();
-      }
-    });
-  }, { threshold: 0.2 });
-
   const statsSection = document.querySelector('.stats-strip');
-  if (statsSection) homeObserver.observe(statsSection);
+  if (window.IntersectionObserver && statsSection) {
+    const homeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          startCounters();
+          animateStatBars();
+          homeObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.2 });
+
+    homeObserver.observe(statsSection);
+  } else if (statsSection) {
+    startCounters();
+    animateStatBars();
+  }
 
   // ── FAQ Toggle ──
   document.querySelectorAll('.faq-q').forEach(btn => {
@@ -186,21 +191,77 @@
     '.contact-card, .faq-item, .step-item'
   );
 
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, idx) => {
-      if (entry.isIntersecting) {
-        entry.target.style.transition = `opacity 0.5s ease ${idx * 0.05}s, transform 0.5s ease ${idx * 0.05}s`;
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
+  if (window.IntersectionObserver) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, idx) => {
+        if (entry.isIntersecting) {
+          entry.target.style.transition = `opacity 0.5s ease ${idx * 0.05}s, transform 0.5s ease ${idx * 0.05}s`;
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
 
-  revealElements.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(16px)';
-    revealObserver.observe(el);
-  });
+    revealElements.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(16px)';
+      revealObserver.observe(el);
+    });
+  } else {
+    revealElements.forEach(el => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
+  }
+
+  // ── Theme Switcher ──
+  const themeToggle = document.getElementById('theme-toggle');
+  console.log('Theme Toggle script active. Button element found:', themeToggle);
+
+  if (themeToggle) {
+    let savedTheme = 'dark';
+    try {
+      savedTheme = localStorage.getItem('theme') || 'dark';
+      console.log('Successfully loaded theme from localStorage:', savedTheme);
+    } catch (e) {
+      console.warn('localStorage is blocked or unavailable:', e);
+    }
+
+    if (savedTheme === 'light') {
+      console.log('Applying saved light theme to html...');
+      document.documentElement.classList.add('light-theme');
+      updateThemeToggleText(true);
+    }
+
+    themeToggle.addEventListener('click', () => {
+      console.log('Theme Toggle button clicked!');
+      const isLight = document.documentElement.classList.toggle('light-theme');
+      console.log('Toggled light-theme class on html. Current state isLight:', isLight);
+
+      try {
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        console.log('Saved updated theme preference to localStorage.');
+      } catch (e) {
+        console.warn('Failed to save theme to localStorage:', e);
+      }
+
+      updateThemeToggleText(isLight);
+    });
+  }
+
+  function updateThemeToggleText(isLight) {
+    if (!themeToggle) return;
+    const label = themeToggle.querySelector('.theme-label');
+    const icon = themeToggle.querySelector('.theme-icon');
+    console.log('Updating theme toggle labels. isLight:', isLight, 'label:', label, 'icon:', icon);
+    if (isLight) {
+      if (label) label.textContent = 'THEME // LIGHT';
+      if (icon) icon.textContent = '☀';
+    } else {
+      if (label) label.textContent = 'THEME // DARK';
+      if (icon) icon.textContent = '🌙';
+    }
+  }
 
 })();
