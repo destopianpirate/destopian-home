@@ -55,7 +55,7 @@ graph TD
     style.css -->|@import| responsive.css[css/responsive.css]
 
     %% CSS imports fonts
-    variables.css -->|@import| GoogleFonts[Google Fonts Rajdhani, Space Grotesk, JetBrains Mono]
+    variables.css -->|@import| GoogleFonts[Google Sans, Space Grotesk, JetBrains Mono]
 
     %% Style nodes styling HTML
     variables.css -.->|Styles| index.html
