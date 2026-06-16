@@ -31,8 +31,10 @@
     top: 56px;
     left: 0;
     right: 0;
-    background: var(--deep);
-    border-bottom: 1px solid var(--border);
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
     padding: 0.5rem;
     justify-content: center;
   }

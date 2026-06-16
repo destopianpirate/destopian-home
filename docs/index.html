@@ -9,6 +9,13 @@
 </head>
 <body>
 
+<!-- Aurora Glow Background -->
+<div class="aurora-container">
+    <div class="aurora-blob"></div>
+    <div class="aurora-blob"></div>
+    <div class="aurora-blob"></div>
+</div>
+
 <!-- Rain Effect -->
 <div class="rain-container" id="rain"></div>
 <div class="scanlines"></div>
@@ -34,7 +41,11 @@
         </div>
 
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
-            <span class="theme-icon">🌙</span>
+            <span class="theme-icon">
+                <svg class="theme-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px; height:14px; vertical-align: middle;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </span>
             <span class="theme-label">THEME // DARK</span>
         </button>
     </div>
@@ -47,6 +58,7 @@
 
     <!-- Hero -->
     <section class="hero">
+        <div class="hero-parallax-bg" id="hero-parallax"></div>
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-content">
@@ -84,7 +96,7 @@
 
     <!-- Mission Pillars -->
     <section class="section">
-        <div class="container">
+        <div class="container neo-box">
             <div class="section-eyebrow">Core Directives</div>
             <h2 class="section-title">Three Pillars of the Resistance</h2>
             <p class="section-subtitle" style="margin-bottom: 2.5rem;">
@@ -125,7 +137,7 @@
 
     <!-- World Status Dashboard -->
     <section class="section">
-        <div class="container">
+        <div class="container neo-box">
             <div class="section-eyebrow">Network Status</div>
             <h2 class="section-title">Resistance Dashboard</h2>
             <p class="section-subtitle" style="margin-bottom: 2.5rem;">Real-time metrics from the Destopian Pirate network.</p>
@@ -156,7 +168,7 @@
 
     <!-- Latest Signals -->
     <section class="section">
-        <div class="container">
+        <div class="container neo-box">
             <div class="section-eyebrow">Intercepted Signals</div>
             <h2 class="section-title">Latest Transmissions</h2>
             <p class="section-subtitle" style="margin-bottom: 2.5rem;">Activity updates from the resistance network.</p>
@@ -174,7 +186,7 @@
                         <span class="signal-date">2026.06.10 — 09:41 UTC</span>
                         <span class="signal-tag critical">PRIORITY</span>
                     </div>
-                    <h4>Destopian AdBlock Pro v1.0 Deployed</h4>
+                    <h4>SilentSurf AdBlocker Pro v1.0 Deployed</h4>
                     <p>First field-tested resistance tool is now live on the Microsoft Edge Add-ons Store. Manifest V3 architecture with Declarative Net Request engine. Zero remote code execution. Full operational status confirmed.</p>
                 </div>
                 <div class="signal-item">
@@ -204,7 +216,7 @@
 <div class="page-view" id="page-extensions">
 
     <section class="section">
-        <div class="container">
+        <div class="container neo-box">
             <div class="section-eyebrow">Resistance Toolkit</div>
             <h2 class="section-title">The Arsenal</h2>
             <p class="section-subtitle" style="margin-bottom: 3rem;">Field-tested browser extensions for digital self-defense. Open source. Privacy-first. No compromises.</p>
@@ -213,10 +225,10 @@
             <div class="ext-featured">
                 <div class="ext-featured-header">
                     <div class="ext-icon-frame">
-                        <img src="assets/shield_logo.png" alt="Destopian AdBlock Pro">
+                        <img src="assets/shield_logo.png" alt="SilentSurf AdBlocker Pro">
                     </div>
                     <div class="ext-meta">
-                        <h2>Destopian AdBlock Pro</h2>
+                        <h2>SilentSurf AdBlocker Pro</h2>
                         <div class="ext-version-line">
                             v1.0.0 · MANIFEST V3 · EDGE
                             <span class="ext-status-badge">OPERATIONAL</span>
@@ -302,7 +314,7 @@
                     </div>
 
                     <div class="ext-actions">
-                        <a href="https://destopianpirate.github.io/destopian-adblocker/" class="btn btn-primary">View Full Details</a>
+                        <button class="btn btn-primary" onclick="navigateTo('silentsurf')">View Full Details</button>
                         <a href="https://github.com/destopianpirate/destopian-adblocker" class="btn btn-outline" target="_blank" rel="noopener">Source Code</a>
                     </div>
                 </div>
@@ -397,7 +409,7 @@
 
     <!-- How It Works -->
     <section class="section">
-        <div class="container">
+        <div class="container neo-box">
             <div class="section-eyebrow">Deployment Protocol</div>
             <h2 class="section-title">How It Works</h2>
             <p class="section-subtitle" style="margin-bottom: 3rem;">Three steps to digital resistance.</p>
@@ -428,7 +440,7 @@
 <div class="page-view" id="page-manifesto">
 
     <section class="section">
-        <div class="container">
+        <div class="container neo-box">
             <div class="section-eyebrow">Directive #001</div>
             <h2 class="section-title">The Manifesto</h2>
             <p class="section-subtitle" style="margin-bottom: 3rem;">The founding document of the Destopian Pirate network.</p>
@@ -460,7 +472,7 @@
 
     <!-- Core Principles -->
     <section class="section">
-        <div class="container">
+        <div class="container neo-box">
             <div class="section-eyebrow">Operating Doctrine</div>
             <h2 class="section-title">Core Principles</h2>
             <p class="section-subtitle" style="margin-bottom: 2.5rem;">The non-negotiable rules that govern every tool we build.</p>
@@ -513,14 +525,14 @@
 
     <!-- Timeline -->
     <section class="section">
-        <div class="container">
+        <div class="container neo-box">
             <div class="section-eyebrow">Operational History</div>
             <h2 class="section-title">Timeline</h2>
             <p class="section-subtitle" style="margin-bottom: 2.5rem;">Key moments in the resistance.</p>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-date">JUNE 2026</div>
-                    <h4>Destopian AdBlock Pro v1.0 Deployed</h4>
+                    <h4>SilentSurf AdBlocker Pro v1.0 Deployed</h4>
                     <p>First operational tool released to the Microsoft Edge Add-ons Store. Manifest V3 compliant, zero remote code execution, full declarative net request implementation.</p>
                 </div>
                 <div class="timeline-item">
@@ -554,7 +566,7 @@
 <div class="page-view" id="page-intel">
 
     <section class="section">
-        <div class="container">
+        <div class="container neo-box">
             <div class="section-eyebrow">Threat Assessment</div>
             <h2 class="section-title">Intelligence Brief</h2>
             <p class="section-subtitle" style="margin-bottom: 2.5rem;">Current status of the digital surveillance landscape.</p>
@@ -577,7 +589,7 @@
     </section>
 
     <section class="section">
-        <div class="container">
+        <div class="container neo-box">
             <div class="section-eyebrow">Field Reports</div>
             <h2 class="section-title">Intelligence Reports</h2>
             <p class="section-subtitle" style="margin-bottom: 2.5rem;">Detailed analysis from resistance operatives.</p>
@@ -641,7 +653,7 @@
 <div class="page-view" id="page-about">
 
     <section class="section">
-        <div class="container">
+        <div class="container neo-box">
             <div class="section-eyebrow">Origin File</div>
             <h2 class="section-title">About the Network</h2>
             <p class="section-subtitle" style="margin-bottom: 3rem;">Who we are, how we started, and where we're going.</p>
@@ -692,7 +704,7 @@
     </section>
 
     <section class="section">
-        <div class="container">
+        <div class="container neo-box">
             <div class="section-eyebrow">Technical Infrastructure</div>
             <h2 class="section-title">Technology Stack</h2>
             <p class="section-subtitle" style="margin-bottom: 2.5rem;">The tools and standards behind the resistance.</p>
@@ -737,7 +749,7 @@
 <div class="page-view" id="page-deaddrop">
 
     <section class="section">
-        <div class="container">
+        <div class="container neo-box">
             <div class="section-eyebrow">Secure Communication</div>
             <h2 class="section-title">Dead Drop</h2>
             <p class="section-subtitle" style="margin-bottom: 3rem;">Channels for reaching the resistance network.</p>
@@ -794,13 +806,13 @@
 
     <!-- FAQ -->
     <section class="section">
-        <div class="container">
+        <div class="container neo-box">
             <div class="section-eyebrow">Debriefing</div>
             <h2 class="section-title">Frequently Asked Questions</h2>
             <p class="section-subtitle" style="margin-bottom: 2.5rem;">Common inquiries answered.</p>
             <div class="faq-list">
                 <div class="faq-item">
-                    <button class="faq-q">Is Destopian AdBlock Pro really free?</button>
+                    <button class="faq-q">Is SilentSurf AdBlocker Pro really free?</button>
                     <div class="faq-a">Yes. Completely free. No premium tier, no trial period, no "upgrade for more features." The full tool is free, open source, and will remain that way. We don't monetize our users in any form.</div>
                 </div>
                 <div class="faq-item">
@@ -813,7 +825,7 @@
                 </div>
                 <div class="faq-item">
                     <button class="faq-q">How is this different from uBlock Origin or AdBlock Plus?</button>
-                    <div class="faq-a">We aren't trying to replace established tools. Destopian AdBlock Pro was built from scratch as a Manifest V3 native extension — no legacy code, no migration compromises. Our focus is on absolute simplicity, zero data collection, and a clean modern UI. Different philosophy, different approach.</div>
+                    <div class="faq-a">We aren't trying to replace established tools. SilentSurf AdBlocker Pro was built from scratch as a Manifest V3 native extension — no legacy code, no migration compromises. Our focus is on absolute simplicity, zero data collection, and a clean modern UI. Different philosophy, different approach.</div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-q">Can I contribute to the project?</button>
@@ -829,13 +841,160 @@
 
     <!-- CTA -->
     <section class="section">
-        <div class="container">
+        <div class="container neo-box">
             <div class="cta-box">
                 <h3>Join the Resistance</h3>
                 <p>Star our repositories, share our tools, and help build the future of the open web. Every installation is a vote for privacy.</p>
                 <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="https://destopianpirate.github.io/destopian-adblocker/" class="btn btn-primary">Get AdBlock Pro</a>
+                    <a href="#" class="btn btn-primary" onclick="navigateTo('silentsurf');return false;">Get SilentSurf</a>
                     <a href="https://github.com/destopianpirate" class="btn btn-outline" target="_blank" rel="noopener">Star on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE 08: SILENTSURF ADBLOCKER PRO
+     ══════════════════════════════════════════ -->
+<div class="page-view" id="page-silentsurf">
+
+    <!-- Hero Section -->
+    <section class="section">
+        <div class="container neo-box">
+            <div class="section-eyebrow">Resistance Tool #001</div>
+            <h2 class="section-title" style="margin-bottom: 0.5rem;">SilentSurf AdBlocker Pro</h2>
+            <p class="section-subtitle" style="margin-bottom: 1rem;">Network-level ad blocking. Zero data collection. Zero compromise.</p>
+            <div class="ext-version-line" style="justify-content: center; margin-bottom: 3rem;">
+                v1.0.0 · MANIFEST V3 · EDGE
+                <span class="ext-status-badge">OPERATIONAL</span>
+            </div>
+
+            <div class="ss-hero-grid">
+                <div class="ss-hero-card">
+                    <span class="ss-hero-icon">🛡️</span>
+                    <h3>Shield</h3>
+                    <p>Intercepts and neutralizes ad requests at the network layer using the Declarative Net Request engine — before they ever reach your browser or consume bandwidth.</p>
+                </div>
+                <div class="ss-hero-card">
+                    <span class="ss-hero-icon">🚫</span>
+                    <h3>Block</h3>
+                    <p>20+ active blocking rules targeting ad networks, tracking pixels, popup scripts, and surveillance beacons. Real-time dashboard shows exactly what's being neutralized.</p>
+                </div>
+                <div class="ss-hero-card">
+                    <span class="ss-hero-icon">🔒</span>
+                    <h3>Private</h3>
+                    <p>Zero data collection. Zero telemetry. Zero network calls to our servers. All configuration stored locally in your browser. Your browsing stays your business.</p>
+                </div>
+            </div>
+
+            <!-- SilentSurf Hero Image -->
+            <div class="ss-hero-image">
+                <img src="assets/silentsurf_hero.png" alt="SilentSurf AdBlocker Pro — Digital Shield">
+            </div>
+        </div>
+    </section>
+
+    <!-- Bento Features -->
+    <section class="section">
+        <div class="container neo-box">
+            <div class="section-eyebrow">Capabilities</div>
+            <h2 class="section-title">Feature Arsenal</h2>
+            <p class="section-subtitle" style="margin-bottom: 3rem;">Every feature built from scratch with Manifest V3. No legacy code. No compromises.</p>
+            <div class="ss-bento-grid">
+                <div class="ss-bento-card span-2">
+                    <span class="ss-bento-icon">⚡</span>
+                    <h4>Network-Level Blocking</h4>
+                    <p>Intercepts and neutralizes ad requests before they consume bandwidth or render on the page. Zero visual flicker. Zero render delay. Powered by the Declarative Net Request API — blocking happens in the browser's network stack itself, faster than any JavaScript-based solution.</p>
+                </div>
+                <div class="ss-bento-card">
+                    <span class="ss-bento-icon">📊</span>
+                    <h4>Real-Time Dashboard</h4>
+                    <p>Live statistics showing blocked requests per session. Monitor exactly what's being neutralized in real time with a clean, minimal popup interface.</p>
+                </div>
+                <div class="ss-bento-card">
+                    <span class="ss-bento-icon">🎚️</span>
+                    <h4>Smart Whitelisting</h4>
+                    <p>Surgically disable blocking on trusted domains without compromising protection everywhere else. One-click toggle per domain.</p>
+                </div>
+                <div class="ss-bento-card">
+                    <span class="ss-bento-icon">🔧</span>
+                    <h4>Custom Rules</h4>
+                    <p>Add your own blocking rules to target specific domains or URL patterns. Full regex support for advanced users who want surgical precision.</p>
+                </div>
+                <div class="ss-bento-card span-2">
+                    <span class="ss-bento-icon">👁️‍🗨️</span>
+                    <h4>Zero Data Collection</h4>
+                    <p>No telemetry, no analytics, no crash reports, no phone-home behavior. The extension makes zero network requests to any server we control. All configuration, statistics, and whitelist data are stored locally using the browser's extension storage API. We don't want your data. Period.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Stats (Parallax Section) -->
+    <section class="parallax-section">
+        <div class="parallax-bg" id="ss-parallax"></div>
+        <div class="parallax-overlay"></div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <div class="section-eyebrow">Performance Metrics</div>
+            <h2 class="section-title">By the Numbers</h2>
+            <p class="section-subtitle" style="margin-bottom: 3rem;">Hard data. No spin.</p>
+            <div class="ss-stats-row">
+                <div class="ss-stat-card">
+                    <div class="ss-stat-val">20+</div>
+                    <div class="ss-stat-label">Active Rules</div>
+                </div>
+                <div class="ss-stat-card">
+                    <div class="ss-stat-val">0ms</div>
+                    <div class="ss-stat-label">Render Delay</div>
+                </div>
+                <div class="ss-stat-card">
+                    <div class="ss-stat-val">0 KB</div>
+                    <div class="ss-stat-label">Data Collected</div>
+                </div>
+                <div class="ss-stat-card">
+                    <div class="ss-stat-val">V3</div>
+                    <div class="ss-stat-label">Manifest Version</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section">
+        <div class="container neo-box">
+            <div class="section-eyebrow">Deployment Protocol</div>
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle" style="margin-bottom: 3rem;">Three steps to digital resistance.</p>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <div class="step-num">1</div>
+                    <h4>Install</h4>
+                    <p>Download from the Edge Add-ons Store or load as an unpacked extension. No account required. No hidden permissions. Installs in under 3 seconds.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">2</div>
+                    <h4>Configure</h4>
+                    <p>Set your protection level. Add trusted sites to your whitelist. Customize blocking rules if you want — or leave the defaults running.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">3</div>
+                    <h4>Protected</h4>
+                    <p>That's it. Browse freely. Ads, trackers, and popups are neutralized at the network layer before they touch your screen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+        <div class="container neo-box">
+            <div class="cta-box">
+                <h3>Get SilentSurf AdBlocker Pro</h3>
+                <p>Block ads. Eliminate trackers. Protect your privacy. All open source, all free, forever.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://microsoftedge.microsoft.com/addons/" class="btn btn-primary" target="_blank" rel="noopener">Get the Extension</a>
+                    <a href="https://github.com/destopianpirate/destopian-adblocker" class="btn btn-outline" target="_blank" rel="noopener">Source Code</a>
                 </div>
             </div>
         </div>
@@ -849,7 +1008,7 @@
 
     <!-- Hero Section -->
     <section class="section">
-        <div class="container">
+        <div class="container neo-box">
             <div class="section-eyebrow">Resistance Tool #002</div>
             <h2 class="section-title" style="margin-bottom: 0.5rem;">Destopian Video Grabber</h2>
             <p class="section-subtitle" style="margin-bottom: 1rem;">Download and enhance any video. Paste any link. Zero tracking.</p>
@@ -880,7 +1039,7 @@
 
     <!-- Supported Platforms -->
     <section class="section">
-        <div class="container">
+        <div class="container neo-box">
             <div class="section-eyebrow">Compatibility Matrix</div>
             <h2 class="section-title">Supported Platforms</h2>
             <p class="section-subtitle" style="margin-bottom: 3rem;">Paste a link from any of these platforms. The extension auto-detects the source and routes through the optimal download path.</p>
@@ -939,7 +1098,7 @@
 
     <!-- Video Enhancer Feature -->
     <section class="section">
-        <div class="container">
+        <div class="container neo-box">
             <div class="section-eyebrow">Enhancement Engine</div>
             <h2 class="section-title">Video Enhancer</h2>
             <p class="section-subtitle" style="margin-bottom: 3rem;">Real-time CSS-filter adjustments applied to any video playing in your browser. No processing delay, no uploads, no cloud servers.</p>
@@ -974,7 +1133,7 @@
 
     <!-- How It Works -->
     <section class="section">
-        <div class="container">
+        <div class="container neo-box">
             <div class="section-eyebrow">Deployment Protocol</div>
             <h2 class="section-title">How It Works</h2>
             <p class="section-subtitle" style="margin-bottom: 3rem;">Three steps to video freedom.</p>
@@ -1000,7 +1159,7 @@
 
     <!-- CTA -->
     <section class="section">
-        <div class="container">
+        <div class="container neo-box">
             <div class="cta-box">
                 <h3>Get Video Grabber</h3>
                 <p>Download videos from anywhere. Enhance them in real time. Keep your data private. All open source.</p>
@@ -1039,7 +1198,7 @@
             </div>
             <div class="footer-col">
                 <h5>Extensions</h5>
-                <a href="https://destopianpirate.github.io/destopian-adblocker/" target="_blank" rel="noopener">AdBlock Pro</a>
+                <a href="#" onclick="navigateTo('silentsurf');return false;">SilentSurf</a>
                 <a href="#" onclick="navigateTo('videograbber');return false;">Video Grabber</a>
                 <a href="https://github.com/destopianpirate" target="_blank" rel="noopener">Source Code</a>
             </div>
@@ -1057,3 +1216,5 @@
 <script src="script.js?v=3"></script>
 </body>
 </html>
+
+

@@ -44,6 +44,18 @@
   --radius-sm: 9999px;
   --radius-md: 14px;
   --radius-lg: 20px;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(12, 12, 14, 0.6);
+  --glass-hover-bg: rgba(18, 18, 20, 0.75);
+  --glass-nav-bg: rgba(5, 5, 8, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-border-hover: rgba(255, 255, 255, 0.12);
+  --glass-blur: 14px;
+
+  /* Neumorphism */
+  --neo-shadow: 6px 6px 16px rgba(0, 0, 0, 0.5), -6px -6px 16px rgba(255, 255, 255, 0.03);
+  --neo-shadow-sm: 4px 4px 10px rgba(0, 0, 0, 0.4), -4px -4px 10px rgba(255, 255, 255, 0.02);
 }
 
 *, *::before, *::after {
@@ -104,4 +116,16 @@ img { max-width: 100%; display: block; }
 
   --card-border: var(--border);
   --card-border-hover: var(--border-hover);
+
+  /* Glassmorphism (Light) */
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-hover-bg: rgba(255, 255, 255, 0.7);
+  --glass-nav-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-border-hover: rgba(0, 0, 0, 0.15);
+  --glass-blur: 14px;
+
+  /* Neumorphism (Light) */
+  --neo-shadow: 6px 6px 16px rgba(0, 0, 0, 0.08), -6px -6px 16px rgba(255, 255, 255, 0.9);
+  --neo-shadow-sm: 4px 4px 10px rgba(0, 0, 0, 0.06), -4px -4px 10px rgba(255, 255, 255, 0.8);
 }
