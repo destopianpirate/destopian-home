@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Destopian Pirate — The World Is Watching. We Watch Back.</title>
     <meta name="description" content="Destopian Pirate: A decentralized collective building free, open-source resistance tools for digital self-defense. Privacy-first browser extensions.">
-    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 
@@ -16,20 +16,23 @@
     <div class="aurora-blob"></div>
 </div>
 
-<!-- Rain Effect -->
-<div class="rain-container" id="rain"></div>
-<div class="scanlines"></div>
+
 
 <!-- ═══ COMMAND BAR ═══ -->
 <nav class="command-bar">
     <div class="command-bar-inner">
         <div class="brand" id="brand-home">
-            <img src="assets/logo.png" alt="Destopian Pirate Logo" class="brand-logo">
-            <span class="brand-name">Destopian Pirate</span>
-            <span class="brand-tag">RESISTANCE<br>NETWORK v2.1</span>
+            <span class="brand-name">Destopian <span style="color: var(--ember); -webkit-text-fill-color: var(--ember); background: none;">Pirate</span></span>
         </div>
 
-        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation">☰ MENU</button>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px; height:16px; vertical-align: middle; margin-right: 4px;">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            MENU
+        </button>
 
         <div class="channel-strip" id="channel-strip">
             <button class="ch-btn active" data-page="home">Home</button>
@@ -42,11 +45,10 @@
 
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
             <span class="theme-icon">
-                <svg class="theme-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px; height:14px; vertical-align: middle;">
+                <svg class="theme-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px; height:20px; vertical-align: middle;">
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                 </svg>
             </span>
-            <span class="theme-label">THEME // DARK</span>
         </button>
     </div>
 </nav>
@@ -58,7 +60,7 @@
 
     <!-- Hero -->
     <section class="hero">
-        <div class="hero-parallax-bg" id="hero-parallax"></div>
+
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-content">
@@ -78,17 +80,12 @@
                 </div>
 
                 <div class="hero-visual">
-                    <div class="radar-ring"></div>
-                    <div class="radar-ring"></div>
-                    <div class="radar-ring"></div>
-                    <div class="radar-sweep"></div>
-                    <div class="radar-node"></div>
-                    <div class="radar-node"></div>
-                    <div class="radar-node"></div>
-                    <div class="radar-node"></div>
-                    <div class="radar-node"></div>
-                    <span class="radar-label">NODE_ALPHA</span>
-                    <span class="radar-label">SECTOR_7G</span>
+                    <div class="core-pulse"></div>
+                    <div class="orbit-ring orbit-1"></div>
+                    <div class="orbit-ring orbit-2"></div>
+                    <div class="orbit-node node-1"></div>
+                    <div class="orbit-node node-2"></div>
+                    <div class="orbit-node node-3"></div>
                 </div>
             </div>
         </div>
@@ -176,7 +173,6 @@
                 <div class="signal-item">
                     <div class="signal-header">
                         <span class="signal-date">2026.06.14 — 16:05 UTC</span>
-                        <span class="signal-tag critical">PRIORITY</span>
                     </div>
                     <h4>Destopian Video Grabber v1.0 Deployed</h4>
                     <p>Second resistance tool is now operational. Multi-platform video downloader with built-in video enhancer. Supports paste-link downloads from YouTube, Instagram, Google Drive, Terabox, DiskWala, and direct video URLs. CSS-filter-based enhancement engine with cinema presets. Zero data collection.</p>
@@ -184,7 +180,6 @@
                 <div class="signal-item">
                     <div class="signal-header">
                         <span class="signal-date">2026.06.10 — 09:41 UTC</span>
-                        <span class="signal-tag critical">PRIORITY</span>
                     </div>
                     <h4>SilentSurf AdBlocker Pro v1.0 Deployed</h4>
                     <p>First field-tested resistance tool is now live on the Microsoft Edge Add-ons Store. Manifest V3 architecture with Declarative Net Request engine. Zero remote code execution. Full operational status confirmed.</p>
@@ -192,18 +187,9 @@
                 <div class="signal-item">
                     <div class="signal-header">
                         <span class="signal-date">2026.06.10 — 08:12 UTC</span>
-                        <span class="signal-tag update">UPDATE</span>
                     </div>
                     <h4>Network Infrastructure Online</h4>
                     <p>Destopian Pirate network node established on GitHub Pages. All source archives are public and auditable. Resistance infrastructure is fully operational and broadcasting.</p>
-                </div>
-                <div class="signal-item">
-                    <div class="signal-header">
-                        <span class="signal-date">2026.06.09 — 23:55 UTC</span>
-                        <span class="signal-tag info">VERIFIED</span>
-                    </div>
-                    <h4>Privacy Audit Complete</h4>
-                    <p>Independent audit confirms: zero data collection, zero telemetry endpoints, zero third-party network calls. All user data stored locally. Full compliance with resistance protocols.</p>
                 </div>
             </div>
         </div>
@@ -217,7 +203,6 @@
 
     <section class="section">
         <div class="container neo-box">
-            <div class="section-eyebrow">Resistance Toolkit</div>
             <h2 class="section-title">The Arsenal</h2>
             <p class="section-subtitle" style="margin-bottom: 3rem;">Field-tested browser extensions for digital self-defense. Open source. Privacy-first. No compromises.</p>
 
@@ -228,10 +213,10 @@
                         <img src="assets/shield_logo.png" alt="SilentSurf AdBlocker Pro">
                     </div>
                     <div class="ext-meta">
-                        <h2>SilentSurf AdBlocker Pro</h2>
-                        <div class="ext-version-line">
-                            v1.0.0 · MANIFEST V3 · EDGE
-                            <span class="ext-status-badge">OPERATIONAL</span>
+                        <h2>SilentSurf AdBlocker Pro <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-tertiary); margin-left: 1rem;">v1.0.0 · EDGE</span></h2>
+                        <div class="ext-actions">
+                            <button class="btn btn-primary" onclick="navigateTo('silentsurf')">View Full Details</button>
+                            <a href="https://github.com/destopianpirate/destopian-adblocker" class="btn btn-outline" target="_blank" rel="noopener">Source Code</a>
                         </div>
                         <p class="ext-desc">High-performance ad and tracker blocker powered by the Declarative Net Request engine. Intercepts surveillance scripts, advertising payloads, and popup intrusions at the network layer — before they ever reach your browser. Features real-time blocking dashboard, smart whitelisting, custom filter rules, and live statistics.</p>
                     </div>
@@ -313,10 +298,7 @@
                         </div>
                     </div>
 
-                    <div class="ext-actions">
-                        <button class="btn btn-primary" onclick="navigateTo('silentsurf')">View Full Details</button>
-                        <a href="https://github.com/destopianpirate/destopian-adblocker" class="btn btn-outline" target="_blank" rel="noopener">Source Code</a>
-                    </div>
+
                 </div>
             </div>
 
@@ -327,10 +309,11 @@
                         <img src="assets/logo.png" alt="Destopian Video Grabber">
                     </div>
                     <div class="ext-meta">
-                        <h2>Destopian Video Grabber</h2>
-                        <div class="ext-version-line">
-                            v1.0.0 · MANIFEST V3 · EDGE / CHROME
-                            <span class="ext-status-badge">OPERATIONAL</span>
+                        <h2>Destopian Video Grabber <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-tertiary); margin-left: 1rem;">v1.0.0 · EDGE / CHROME</span></h2>
+                        <div class="ext-actions">
+                            <button class="btn btn-primary" onclick="navigateTo('videograbber')">View Full Details</button>
+                            <a href="grabber/" class="btn btn-primary" target="_blank" rel="noopener" title="Open the Destopian Grabber web app">Open Web App</a>
+                            <a href="https://github.com/destopianpirate/video-grabber" class="btn btn-outline" target="_blank" rel="noopener">Source Code</a>
                         </div>
                         <p class="ext-desc">Multi-platform video downloader and real-time video enhancer. Paste links from YouTube, Instagram, Google Drive, Terabox, DiskWala, and any cloud drive. Auto-detects videos playing in your browser with quality selection and estimated file sizes. Built-in CSS-filter enhancement engine with cinema presets for brightness, contrast, saturation, and hue adjustment.</p>
                     </div>
@@ -396,12 +379,6 @@
                             <div class="ext-stat-val">V3</div>
                             <div class="ext-stat-label">Manifest Version</div>
                         </div>
-                    </div>
-
-                    <div class="ext-actions">
-                        <button class="btn btn-primary" onclick="navigateTo('videograbber')">View Full Details</button>
-                        <a href="grabber/" class="btn btn-primary" target="_blank" rel="noopener" title="Open the Destopian Grabber web app">Open Web App</a>
-                        <a href="https://github.com/destopianpirate/destopian-video-grabber" class="btn btn-outline" target="_blank" rel="noopener">Source Code</a>
                     </div>
                 </div>
             </div>
@@ -474,8 +451,7 @@
     <!-- Core Principles -->
     <section class="section">
         <div class="container neo-box">
-            <div class="section-eyebrow">Operating Doctrine</div>
-            <h2 class="section-title">Core Principles</h2>
+            <h2 class="section-title">Core Directives</h2>
             <p class="section-subtitle" style="margin-bottom: 2.5rem;">The non-negotiable rules that govern every tool we build.</p>
             <div class="principles-grid">
                 <div class="principle-card">
@@ -527,7 +503,6 @@
     <!-- Timeline -->
     <section class="section">
         <div class="container neo-box">
-            <div class="section-eyebrow">Operational History</div>
             <h2 class="section-title">Timeline</h2>
             <p class="section-subtitle" style="margin-bottom: 2.5rem;">Key moments in the resistance.</p>
             <div class="timeline">
@@ -568,7 +543,6 @@
 
     <section class="section">
         <div class="container neo-box">
-            <div class="section-eyebrow">Threat Assessment</div>
             <h2 class="section-title">Intelligence Brief</h2>
             <p class="section-subtitle" style="margin-bottom: 2.5rem;">Current status of the digital surveillance landscape.</p>
 
@@ -591,7 +565,6 @@
 
     <section class="section">
         <div class="container neo-box">
-            <div class="section-eyebrow">Field Reports</div>
             <h2 class="section-title">Intelligence Reports</h2>
             <p class="section-subtitle" style="margin-bottom: 2.5rem;">Detailed analysis from resistance operatives.</p>
             <div class="intel-reports">
@@ -655,7 +628,6 @@
 
     <section class="section">
         <div class="container neo-box">
-            <div class="section-eyebrow">Origin File</div>
             <h2 class="section-title">About the Network</h2>
             <p class="section-subtitle" style="margin-bottom: 3rem;">Who we are, how we started, and where we're going.</p>
 
@@ -706,7 +678,6 @@
 
     <section class="section">
         <div class="container neo-box">
-            <div class="section-eyebrow">Technical Infrastructure</div>
             <h2 class="section-title">Technology Stack</h2>
             <p class="section-subtitle" style="margin-bottom: 2.5rem;">The tools and standards behind the resistance.</p>
             <div class="tech-grid">
@@ -751,7 +722,6 @@
 
     <section class="section">
         <div class="container neo-box">
-            <div class="section-eyebrow">Secure Communication</div>
             <h2 class="section-title">Dead Drop</h2>
             <p class="section-subtitle" style="margin-bottom: 3rem;">Channels for reaching the resistance network.</p>
 
@@ -808,7 +778,6 @@
     <!-- FAQ -->
     <section class="section">
         <div class="container neo-box">
-            <div class="section-eyebrow">Debriefing</div>
             <h2 class="section-title">Frequently Asked Questions</h2>
             <p class="section-subtitle" style="margin-bottom: 2.5rem;">Common inquiries answered.</p>
             <div class="faq-list">
@@ -863,13 +832,8 @@
     <!-- Hero Section -->
     <section class="section">
         <div class="container neo-box">
-            <div class="section-eyebrow">Resistance Tool #001</div>
-            <h2 class="section-title" style="margin-bottom: 0.5rem;">SilentSurf AdBlocker Pro</h2>
-            <p class="section-subtitle" style="margin-bottom: 1rem;">Network-level ad blocking. Zero data collection. Zero compromise.</p>
-            <div class="ext-version-line" style="justify-content: center; margin-bottom: 3rem;">
-                v1.0.0 · MANIFEST V3 · EDGE
-                <span class="ext-status-badge">OPERATIONAL</span>
-            </div>
+            <h2 class="section-title" style="margin-bottom: 0.5rem;">SilentSurf AdBlocker Pro v1.0.0</h2>
+            <p class="section-subtitle" style="margin-bottom: 3rem;">Network-level ad blocking. Zero data collection. Zero compromise.</p>
 
             <div class="ss-hero-grid">
                 <div class="ss-hero-card">
@@ -899,8 +863,7 @@
     <!-- Bento Features -->
     <section class="section">
         <div class="container neo-box">
-            <div class="section-eyebrow">Capabilities</div>
-            <h2 class="section-title">Feature Arsenal</h2>
+            <h2 class="section-title">Network Status</h2>
             <p class="section-subtitle" style="margin-bottom: 3rem;">Every feature built from scratch with Manifest V3. No legacy code. No compromises.</p>
             <div class="ss-bento-grid">
                 <div class="ss-bento-card span-2">
@@ -1010,13 +973,8 @@
     <!-- Hero Section -->
     <section class="section">
         <div class="container neo-box">
-            <div class="section-eyebrow">Resistance Tool #002</div>
-            <h2 class="section-title" style="margin-bottom: 0.5rem;">Destopian Video Grabber</h2>
-            <p class="section-subtitle" style="margin-bottom: 1rem;">Download and enhance any video. Paste any link. Zero tracking.</p>
-            <div class="ext-version-line" style="justify-content: center; margin-bottom: 3rem;">
-                v1.0.0 · MANIFEST V3 · EDGE / CHROME
-                <span class="ext-status-badge">OPERATIONAL</span>
-            </div>
+            <h2 class="section-title" style="margin-bottom: 0.5rem;">Destopian Video Grabber <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-tertiary); margin-left: 1rem;">v1.0.0 · EDGE / CHROME</span></h2>
+            <p class="section-subtitle" style="margin-bottom: 3rem;">Download and enhance any video. Paste any link. Zero tracking.</p>
 
             <div class="vg-hero-grid">
                 <div class="vg-hero-card">

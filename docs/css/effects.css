@@ -96,13 +96,7 @@
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.neo-box:hover {
-  transform: translateY(-4px);
-  box-shadow:
-    inset -6px -6px 14px rgba(0, 0, 0, 0.35),
-    inset 6px 6px 14px rgba(255, 255, 255, 0.04),
-    0 12px 40px rgba(0, 0, 0, 0.4);
-}
+
 
 /* ═══ CLAYMORPHISM (on hover) ═══ */
 .pillar-card {
@@ -633,9 +627,7 @@
 
 /* SilentSurf Stats */
 .ss-stats-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem;
+  display: none !important;
 }
 
 .ss-stat-card {
@@ -762,9 +754,27 @@
   opacity: 0.08;
 }
 
-.light-theme .neo-box:hover {
-  box-shadow:
-    inset -6px -6px 14px rgba(0, 0, 0, 0.08),
-    inset 6px 6px 14px rgba(255, 255, 255, 0.6),
-    0 12px 40px rgba(0, 0, 0, 0.1);
+/* Remove boundaries of the boxes */
+.neo-box,
+.clay-box,
+.ext-featured,
+.ext-feature,
+.manifesto-document,
+.pillar-card,
+.principle-card,
+.intel-card,
+.about-sidebar,
+.contact-card,
+.vg-hero-card,
+.vg-platform-card,
+.vg-enhancer-feature,
+.stats-strip,
+.signal-item,
+.bento-card,
+.ss-hero-card,
+.ss-bento-card,
+.container.neo-box {
+  border: none !important;
 }
+
+

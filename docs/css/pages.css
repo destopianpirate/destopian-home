@@ -1,14 +1,16 @@
 /* ═══ EXTENSIONS (ARSENAL) PAGE ═══ */
 .ext-featured {
-  background: var(--panel);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-md);
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--neo-shadow);
   overflow: hidden;
+  border: 1px solid var(--glass-border);
+  position: relative;
 }
 
 .ext-featured-header {
   background: linear-gradient(135deg, var(--surface), var(--raised));
-  padding: 2.5rem;
+  padding: 2.5rem 2.5rem 1.2rem 2.5rem;
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 2.5rem;
@@ -102,13 +104,14 @@
   padding: 2.2rem 6.5rem 2.2rem 3.5rem;
   background: var(--surface);
   border-radius: 9999px;
-  border: 1px solid var(--card-border);
+  box-shadow: var(--neo-shadow);
+  border: 1px solid var(--glass-border);
   transition: all 0.3s ease;
 }
 
 .ext-feature:hover {
-  border-color: var(--card-border-hover);
   transform: translateY(-2px);
+  box-shadow: var(--clay-shadow);
 }
 
 .ext-feature-info-wrap {
@@ -162,10 +165,7 @@
 }
 
 .ext-stats-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  margin-bottom: 2rem;
+  display: none !important;
 }
 
 .ext-stat {
@@ -194,7 +194,18 @@
 .ext-actions {
   display: flex;
   gap: 1rem;
-  padding-top: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.ext-actions .btn {
+  box-shadow: none !important;
+  padding: 0.8rem 1.6rem;
+  font-size: 0.95rem;
+}
+
+.ext-actions .btn-primary {
+  color: #ffffff !important;
 }
 
 .ext-placeholder {
@@ -239,11 +250,12 @@
 .manifesto-document {
   max-width: 780px;
   margin: 0 auto;
-  background: var(--panel);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-md);
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--neo-shadow);
   position: relative;
   overflow: hidden;
+  border: 1px solid var(--glass-border);
 }
 
 .manifesto-stamp {
@@ -331,16 +343,17 @@
   display: flex;
   gap: 1.25rem;
   align-items: flex-start;
-  background: var(--panel);
-  border: 1px solid var(--card-border);
-  border-radius: 9999px;
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--neo-shadow);
   padding: 1.75rem 3.5rem 1.75rem 2.8rem;
   transition: all 0.3s ease;
+  border: 1px solid var(--glass-border);
 }
 
 .principle-card:hover {
-  border-color: var(--card-border-hover);
   transform: translateY(-2px);
+  box-shadow: var(--clay-shadow);
 }
 
 .principle-num {
@@ -436,16 +449,17 @@
 }
 
 .intel-card {
-  background: var(--panel);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-md);
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--neo-shadow);
   padding: 1.75rem;
   transition: all 0.3s ease;
+  border: 1px solid var(--glass-border);
 }
 
 .intel-card:hover {
-  border-color: var(--card-border-hover);
   transform: translateY(-2px);
+  box-shadow: var(--clay-shadow);
 }
 
 .intel-card-head {
@@ -508,10 +522,11 @@
 }
 
 .about-sidebar {
-  background: var(--panel);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-md);
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--neo-shadow);
   padding: 2rem;
+  border: 1px solid var(--glass-border);
 }
 
 .about-sidebar h4 {
@@ -553,18 +568,19 @@
 }
 
 .contact-card {
-  background: var(--panel);
-  border: 1px solid var(--card-border);
+  background: var(--surface);
   border-radius: 9999px;
+  box-shadow: var(--neo-shadow);
   padding: 2.2rem 6.5rem 2.2rem 3.5rem;
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
+  border: 1px solid var(--glass-border);
 }
 
 .contact-card:hover {
-  border-color: var(--card-border-hover);
   transform: translateY(-2px);
+  box-shadow: var(--clay-shadow);
 }
 
 .contact-info-wrap {
@@ -622,17 +638,18 @@
 }
 
 .vg-hero-card {
-  background: var(--panel);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--neo-shadow);
   padding: 2.5rem;
   text-align: center;
   transition: all 0.3s ease;
+  border: 1px solid var(--glass-border);
 }
 
 .vg-hero-card:hover {
-  border-color: var(--card-border-hover);
   transform: translateY(-4px);
+  box-shadow: var(--clay-shadow);
 }
 
 .vg-hero-icon {
@@ -661,9 +678,9 @@
 }
 
 .vg-platform-card {
-  background: var(--panel);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-md);
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--neo-shadow);
   padding: 1.75rem;
   text-align: center;
   transition: all 0.3s ease;
@@ -671,11 +688,12 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  border: 1px solid var(--glass-border);
 }
 
 .vg-platform-card:hover {
-  border-color: var(--card-border-hover);
   transform: translateY(-3px);
+  box-shadow: var(--clay-shadow);
 }
 
 .vg-platform-icon {
@@ -732,16 +750,17 @@
 }
 
 .vg-enhancer-feature {
-  background: var(--panel);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-md);
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--neo-shadow);
   padding: 2rem;
   transition: all 0.3s ease;
+  border: 1px solid var(--glass-border);
 }
 
 .vg-enhancer-feature:hover {
-  border-color: var(--card-border-hover);
   transform: translateY(-2px);
+  box-shadow: var(--clay-shadow);
 }
 
 .vg-enhancer-feature h4 {

@@ -20,22 +20,25 @@
 
 .btn-primary {
   background: var(--ember);
-  color: white;
+  color: #121214;
+  box-shadow: var(--neo-shadow-sm);
 }
 .btn-primary:hover {
-  background: #ff6520;
-  box-shadow: 0 4px 24px rgba(232,83,14,0.3);
+  background: #ffcc33;
+  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2), inset -2px -2px 5px rgba(255,255,255,0.2);
   transform: translateY(-1px);
 }
 
 .btn-outline {
-  background: var(--raised);
+  background: var(--surface);
   color: var(--text-primary);
   border: 1px solid var(--border);
+  box-shadow: var(--neo-shadow-sm);
 }
 .btn-outline:hover {
   border-color: var(--border-hover);
-  background: var(--elevated);
+  background: var(--surface);
+  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2), inset -2px -2px 5px rgba(255,255,255,0.05);
 }
 
 .btn-sm {
@@ -51,19 +54,19 @@
 }
 
 .pillar-card {
-  background: var(--panel);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--neo-shadow);
   padding: 2.5rem;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  border: 1px solid var(--glass-border);
 }
 
 .pillar-card:hover {
-  border-color: var(--card-border-hover);
   transform: translateY(-3px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  box-shadow: var(--clay-shadow);
 }
 
 .pillar-info-wrap {
@@ -112,10 +115,11 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0;
-  background: var(--panel);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--neo-shadow);
   overflow: hidden;
+  border: 1px solid var(--glass-border);
 }
 
 .stat-cell {
@@ -187,17 +191,18 @@
 }
 
 .signal-item {
-  background: var(--panel);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-md);
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--neo-shadow);
   padding: 1.75rem;
   transition: all 0.3s ease;
   cursor: default;
+  border: 1px solid var(--glass-border);
 }
 
 .signal-item:hover {
-  border-color: var(--card-border-hover);
   transform: translateY(-2px);
+  box-shadow: var(--clay-shadow);
 }
 
 .signal-header {

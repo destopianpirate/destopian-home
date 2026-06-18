@@ -1,36 +1,50 @@
-/* ═══ RAIN EFFECT ═══ */
-.rain-container {
+/* ═══ MORPHISM ORGANIC BLOBS ═══ */
+.aurora-container {
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: -2;
   overflow: hidden;
-  opacity: 0.08;
+  opacity: 0.4;
+  filter: blur(80px);
 }
 
-.rain-drop {
+.aurora-blob {
   position: absolute;
-  width: 1px;
-  background: linear-gradient(to bottom, transparent, var(--signal));
-  animation: rain-fall linear infinite;
-  opacity: 0.6;
+  border-radius: 50%;
+  animation: blob-float 15s ease-in-out infinite alternate;
 }
 
-@keyframes rain-fall {
-  0% { transform: translateY(-100px); }
-  100% { transform: translateY(100vh); }
+.aurora-blob:nth-child(1) {
+  width: 500px;
+  height: 500px;
+  background: var(--ember-glow);
+  top: -10%;
+  left: -10%;
 }
 
-/* ═══ SCANLINES ═══ */
-.scanlines {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  background: repeating-linear-gradient(
-    0deg, transparent, transparent 2px,
-    rgba(0,0,0,0.015) 2px, rgba(0,0,0,0.015) 4px
-  );
+.aurora-blob:nth-child(2) {
+  width: 600px;
+  height: 600px;
+  background: var(--signal-glow);
+  bottom: -20%;
+  right: -10%;
+  animation-delay: -5s;
+}
+
+.aurora-blob:nth-child(3) {
+  width: 400px;
+  height: 400px;
+  background: var(--cold-glow);
+  top: 40%;
+  left: 60%;
+  animation-delay: -10s;
+}
+
+@keyframes blob-float {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(100px, 50px) scale(1.1); }
+  100% { transform: translate(-50px, 100px) scale(0.9); }
 }
 
 /* ═══ HERO RADAR ANIMATION ═══ */

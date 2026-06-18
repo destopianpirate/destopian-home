@@ -4,7 +4,7 @@
   position: relative;
   z-index: 2;
 }
-.page-view.active { display: block; animation: fade-up 0.4s ease forwards; }
+.page-view.active { display: flex; flex-direction: column; animation: fade-up 0.4s ease forwards; flex-grow: 1; }
 
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(12px); }
@@ -18,6 +18,16 @@
   padding: 0 2rem;
 }
 
+.container.neo-box {
+  max-width: 1000px;
+  margin: 0 auto;
+  border: none;
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--neo-shadow);
+  padding: 3rem;
+}
+
 .section {
   padding: 5rem 0;
   position: relative;
@@ -26,6 +36,25 @@
 .section + .section {
   border-top: 1px solid var(--border);
 }
+
+/* ═══ MORPHISM UTILITIES ═══ */
+.neo-box {
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--neo-shadow);
+  padding: 3rem;
+  margin-bottom: 2rem;
+  border: 1px solid var(--glass-border);
+}
+
+.clay-box {
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--clay-shadow);
+  padding: 3rem;
+  margin-bottom: 2rem;
+}
+
 
 .section-eyebrow {
   font-family: var(--font-mono);
@@ -119,15 +148,233 @@
 
 .hero-actions {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-actions .btn {
+  box-shadow: none !important;
+}
+
+/* ═══ PAGE SYSTEM ═══ */
+.page-view {
+  display: none;
+  position: relative;
+  z-index: 2;
+}
+.page-view.active { display: flex; flex-direction: column; animation: fade-up 0.4s ease forwards; flex-grow: 1; }
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══ SHARED LAYOUT ═══ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.container.neo-box {
+  max-width: 1000px;
+  margin: 0 auto;
+  border: none;
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--neo-shadow);
+  padding: 3rem;
+}
+
+.section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.section + .section {
+  border-top: 1px solid var(--border);
+}
+
+/* ═══ MORPHISM UTILITIES ═══ */
+.neo-box {
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--neo-shadow);
+  padding: 3rem;
+  margin-bottom: 2rem;
+  border: 1px solid var(--glass-border);
+}
+
+.clay-box {
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--clay-shadow);
+  padding: 3rem;
+  margin-bottom: 2rem;
+}
+
+.container.neo-box:hover,
+.neo-box:hover,
+.clay-box:hover,
+.ext-featured:hover {
+  transform: none !important;
+}
+
+
+.section-eyebrow {
+  display: none !important;
+}
+
+.section-eyebrow::before {
+  content: '';
+  width: 16px;
+  height: 1px;
+  background: var(--ember);
+}
+
+.signal-tag {
+  display: none !important;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  line-height: 1.15;
+}
+
+.section-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+/* ═══ HERO (HOME) ═══ */
+.hero {
+  height: calc(100vh - 65px);
+  display: flex;
   align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(232,83,14,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 30%, rgba(0,229,160,0.03) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 100%, rgba(58,139,253,0.03) 0%, transparent 30%);
+  pointer-events: none;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.hero-content { position: relative; z-index: 1; }
+
+
+
+.hero h1 {
+  font-family: 'Product Sans Black', var(--font-body);
+  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 .line-accent {
+  color: var(--ember);
+  display: block;
+}
+
+.hero-desc {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-actions .btn {
+  box-shadow: none !important;
 }
 
 .hero-visual {
   position: relative;
+  width: 100%;
+  height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 460px;
 }
 
+.core-pulse {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: var(--ember);
+  border-radius: 50%;
+  box-shadow: 0 0 40px var(--ember);
+  animation: core-beat 2s ease-in-out infinite alternate;
+}
+
+.orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed var(--ember);
+  opacity: 0.3;
+  animation: spin-ring 20s linear infinite;
+}
+
+.orbit-1 { width: 200px; height: 200px; animation-duration: 15s; }
+.orbit-2 { width: 320px; height: 320px; animation-direction: reverse; border-style: solid; opacity: 0.1; }
+
+.orbit-node {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--ember);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--ember);
+}
+
+.node-1 { top: 100px; left: 50%; transform: translate(-50%, -50%); }
+.node-2 { bottom: 160px; left: 15%; }
+.node-3 { top: 200px; right: 20%; }
+
+@keyframes core-beat {
+  0% { transform: scale(1); box-shadow: 0 0 20px var(--ember); }
+  100% { transform: scale(1.15); box-shadow: 0 0 60px var(--ember); }
+}
+
+@keyframes spin-ring {
+  100% { transform: rotate(360deg); }
+}
+
+.hero-visual svg {
+  animation: float-pulse 6s ease-in-out infinite;
+}
+
+@keyframes float-pulse {
+  0% { transform: translateY(0px) scale(1); filter: drop-shadow(0 0 10px var(--ember-glow)); }
+  50% { transform: translateY(-15px) scale(1.05); filter: drop-shadow(0 0 30px var(--ember)); }
+  100% { transform: translateY(0px) scale(1); filter: drop-shadow(0 0 10px var(--ember-glow)); }
+}

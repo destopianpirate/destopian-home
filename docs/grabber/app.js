@@ -80,6 +80,9 @@
       document.getElementById('resultTitle').textContent = data.title || 'Untitled';
       document.getElementById('resultMeta').textContent = formatDuration(data.duration);
 
+      // Store cloudUrl if returned (for cloud storage direct downloads)
+      const cloudUrl = data.cloudUrl || null;
+
       // Video formats
       const vGrid = document.getElementById('videoFormats');
       vGrid.innerHTML = '';
@@ -95,13 +98,50 @@
           <span class="fmt-ext">${f.ext}</span>
           ${f.filesize ? `<span class="fmt-size">${formatSize(f.filesize)}</span>` : ''}
         `;
-        btn.addEventListener('click', () => downloadFormat(url, f.format_id, data.title));
+        btn.addEventListener('click', () => {
+          if (cloudUrl) {
+            window.open(cloudUrl, '_blank');
+          } else if (f.url) {
+            // Format is pre-muxed with video+audio, download directly!
+            const a = document.createElement('a');
+            a.href = f.url;
+            a.download = (data.title || 'video') + '.' + (f.ext || 'mp4');
+            a.target = '_blank';
+            a.rel = 'noopener';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+          } else {
+            // Requires merging
+            const formatStr = f.format_id ? `${f.format_id}+bestaudio/best` : 'bestvideo+bestaudio/best';
+            const streamUrl = `${API_BASE}/api/stream?url=${encodeURIComponent(url)}&format=${encodeURIComponent(formatStr)}`;
+            window.open(streamUrl, '_blank');
+          }
+        });
 
         const previewBtn = document.createElement('button');
         previewBtn.className = 'btn-preview';
         previewBtn.title = 'Preview';
         previewBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polygon points="5 3 19 12 5 21 5 3"/></svg>`;
-        previewBtn.addEventListener('click', () => previewFormat(url, f.format_id, data.title));
+        previewBtn.addEventListener('click', () => {
+          showEl('previewContainer');
+          const player = document.getElementById('previewPlayer');
+          
+          if (cloudUrl) {
+            player.src = cloudUrl;
+          } else if (f.url) {
+            // Format is pre-muxed with video+audio, stream directly with duration!
+            player.src = f.url;
+          } else {
+            // Requires merging via ffmpeg (live stream, no duration)
+            const formatStr = f.format_id ? `${f.format_id}+bestaudio/best` : 'bestvideo+bestaudio/best';
+            const streamUrl = `${API_BASE}/api/stream?url=${encodeURIComponent(url)}&format=${encodeURIComponent(formatStr)}`;
+            player.src = streamUrl;
+          }
+          
+          player.play();
+          player.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
 
         wrapper.appendChild(btn);
         wrapper.appendChild(previewBtn);
@@ -134,15 +174,42 @@
       const aGrid = document.getElementById('audioFormats');
       aGrid.innerHTML = '';
       (data.audio || []).forEach(f => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'format-wrapper';
+
         const btn = document.createElement('button');
         btn.className = 'format-btn';
+        btn.title = 'Download Audio';
         btn.innerHTML = `
           <span class="fmt-quality">${f.label}</span>
           <span class="fmt-ext">${f.ext}</span>
           ${f.filesize ? `<span class="fmt-size">${formatSize(f.filesize)}</span>` : ''}
         `;
-        btn.addEventListener('click', () => downloadAudioFormat(url, f.format_id, data.title));
-        aGrid.appendChild(btn);
+        btn.addEventListener('click', () => {
+          // Audio-only streams already have audio, use /api/stream with just audio format
+          const formatStr = f.format_id || 'bestaudio/best';
+          const streamUrl = `${API_BASE}/api/stream?url=${encodeURIComponent(url)}&format=${encodeURIComponent(formatStr)}`;
+          window.open(streamUrl, '_blank');
+        });
+
+        const previewBtn = document.createElement('button');
+        previewBtn.className = 'btn-preview';
+        previewBtn.title = 'Preview Audio';
+        previewBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polygon points="5 3 19 12 5 21 5 3"/></svg>`;
+        previewBtn.addEventListener('click', () => {
+          // Use /api/stream for audio preview too
+          const formatStr = f.format_id || 'bestaudio/best';
+          const streamUrl = `${API_BASE}/api/stream?url=${encodeURIComponent(url)}&format=${encodeURIComponent(formatStr)}`;
+          showEl('previewContainer');
+          const player = document.getElementById('previewPlayer');
+          player.src = streamUrl;
+          player.play();
+          player.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+
+        wrapper.appendChild(btn);
+        wrapper.appendChild(previewBtn);
+        aGrid.appendChild(wrapper);
       });
 
       showEl('resultCard');
