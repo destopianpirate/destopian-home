@@ -7,7 +7,7 @@
 
   // Change this to your deployed server URL when hosting (e.g. 'https://api.destopian.com')
   // For local development, leave it as 'http://localhost:3000'
-  const API_BASE = 'http://localhost:3000';
+  const API_BASE = 'https://destopianserver.onrender.com';
 
   // ── Tab Navigation ──
   const tabs = document.querySelectorAll('.nav-tab');
